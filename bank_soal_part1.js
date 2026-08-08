@@ -1,12 +1,10 @@
-// Bank Soal Utuh Level 1 & Level 2 untuk Seluruh Mata Pelajaran (25 Soal per Level/Mapel)
+// Bank Soal Utuh Level 1 & Level 2 Lengkap 25 Soal per Mapel
 
 if (window.MASTER_QUESTION_BANK) {
 
     // =========================================================================
     // 1. MATEMATIKA UMUM (MATUMU)
     // =========================================================================
-
-    // --- MATUMU LEVEL 1: Eksponen, Bentuk Akar & Logaritma ---
     window.MASTER_QUESTION_BANK.matumu[1] = [
         { q: "Bentuk sederhana dari pecahan berpangkat $\\frac{2^{-3} \\cdot 8^{2/3}}{4^{-1}}$ adalah...", options: ["2", "4", "8", "1/2", "1"], correct: 1 },
         { q: "Nilai dari $^{2}\\log 16 + ^{3}\\log 27 - ^{5}\\log 25$ adalah...", options: ["3", "4", "5", "2", "6"], correct: 0 },
@@ -35,7 +33,6 @@ if (window.MASTER_QUESTION_BANK) {
         { q: "Bentuk sederhana dari $\\sqrt{8} + \\sqrt{18}$ adalah...", options: ["$5\\sqrt{2}$", "$6\\sqrt{2}$", "$4\\sqrt{2}$", "$13\\sqrt{2}$", "$2\\sqrt{2}$"], correct: 0 }
     ];
 
-    // --- MATUMU LEVEL 2: Persamaan & Pertidaksamaan Kuadrat ---
     window.MASTER_QUESTION_BANK.matumu[2] = [
         { q: "Akar-akar persamaan kuadrat $x^2 - 5x + 6 = 0$ adalah...", options: ["2 dan 3", "-2 dan -3", "1 dan 6", "-1 dan -6", "2 dan -3"], correct: 0 },
         { q: "Jumlah akar-akar ($x_1 + x_2$) dari persamaan $2x^2 - 8x + 6 = 0$ adalah...", options: ["4", "-4", "3", "-3", "8"], correct: 0 },
@@ -64,12 +61,9 @@ if (window.MASTER_QUESTION_BANK) {
         { q: "Nilai minimum fungsi kuadrat $y = x^2 - 2x - 3$ adalah...", options: ["-4", "-3", "-1", "0", "1"], correct: 0 }
     ];
 
-
     // =========================================================================
     // 2. MATEMATIKA LANJUT (MTL)
     // =========================================================================
-
-    // --- MTL LEVEL 1: Polinomial: Pembagian & Teorema Sisa ---
     window.MASTER_QUESTION_BANK.matlan[1] = [
         { q: "Suku banyak $f(x) = 2x^3 - 5x^2 + 4x - 1$ dibagi oleh $(x - 2)$. Sisa pembagiannya adalah...", options: ["3", "1", "2", "4", "5"], correct: 0 },
         { q: "Jika $f(x) = x^3 - 3x^2 + kx - 4$ habis dibagi $(x - 1)$, maka nilai $k$ adalah...", options: ["6", "4", "5", "2", "1"], correct: 0 },
@@ -98,13 +92,12 @@ if (window.MASTER_QUESTION_BANK) {
         { q: "Nilai $a$ agar $(x + 3)$ merupakan faktor dari $x^3 + 3x^2 - ax - 12$ adalah...", options: ["4", "-4", "3", "-3", "12"], correct: 0 }
     ];
 
-    // --- MTL LEVEL 2: Matriks Lanjut Ordo 3x3 & Invers ---
     window.MASTER_QUESTION_BANK.matlan[2] = [
         { q: "Determinan dari matriks $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 3 \\\\ 2 & 0 & 1 \\end{pmatrix}$ menggunakan metode Sarrus adalah...", options: ["13", "11", "15", "7", "9"], correct: 0 },
         { q: "Matriks Kofaktor $C_{ij}$ dari elemen $a_{ij}$ dirumuskan...", options: ["$(-1)^{i+j} M_{ij}$", "$M_{ij}$", "$(-1)^{i-j} M_{ij}$", "$\\det(M_{ij})$", "$-M_{ij}$"], correct: 0 },
         { q: "Adjoin dari matriks $A$ ($Adj(A)$) adalah...", options: ["Transpose dari matriks Kofaktor ($C^T$)", "Invers matriks A", "Determinan A", "Matriks Kofaktor C", "Matriks $A^T$"], correct: 0 },
         { q: "Rumus Invers Matriks ordo 3x3 $A^{-1}$ adalah...", options: ["$\\frac{1}{\\det(A)} \\cdot Adj(A)$", "$\\det(A) \\cdot Adj(A)$", "$\\frac{1}{Adj(A)}$", "$\\frac{1}{\\det(A)} \\cdot A^T$", "$Adj(A) \\cdot A$"], correct: 0 },
-        { q: "Minor $M_{11}$ dari matriks $\\begin{pmatrix} 2 & 1 & 3 \\\\ 0 & 4 & 5 \\\\ 1 & 0 & 2 \\end{pmatrix}$ diperoleh dengan menghapus baris ke-1 dan kolom ke-1, determinannya adalah...", options: ["8 (karena $4(2) - 5(0) = 8$)", "6", "10", "4", "2"], correct: 0 },
+        { q: "Minor $M_{11}$ dari matriks $\\begin{pmatrix} 2 & 1 & 3 \\\\ 0 & 4 & 5 \\\\ 1 & 0 & 2 \\end{pmatrix}$ diperoleh dengan menghapus baris ke-1 dan kolom ke-1, determinannya adalah...", options: ["8", "6", "10", "4", "2"], correct: 0 },
         { q: "Jika $\\det(A) = 5$, maka nilai $\\det(A^{-1})$ adalah...", options: ["1/5", "5", "-5", "-1/5", "25"], correct: 0 },
         { q: "Jika $A$ matriks ordo $3 \\times 3$ dan $\\det(A) = 2$, maka $\\det(3A) = 3^3 \\cdot \\det(A) = $...", options: ["54", "6", "18", "27", "12"], correct: 0 },
         { q: "Sifat matriks $(A \\cdot B)^{-1}$ sama dengan...", options: ["$B^{-1} \\cdot A^{-1}$", "$A^{-1} \\cdot B^{-1}$", "$A \\cdot B^{-1}$", "$B \\cdot A^{-1}$", "$(A \\cdot B)^T$"], correct: 0 },
@@ -113,26 +106,23 @@ if (window.MASTER_QUESTION_BANK) {
         { q: "Matriks persegi yang memenuhi $A^T = A$ dinamakan matriks...", options: ["Simetris", "Skalar", "Diagonal", "Identitas", "Asimetris"], correct: 0 },
         { q: "Matriks persegi yang memenuhi $A^T = -A$ dinamakan matriks...", options: ["Miring Simetris (Skew-Symmetric)", "Simetris", "Ortogonal", "Singular", "Involutif"], correct: 0 },
         { q: "Matriks $A$ dinamakan Ortogonal apabila memenuhi sifat $A^T = $...", options: ["$A^{-1}$", "A", "-A", "I", "0"], correct: 0 },
-        { q: "Determinan matriks diagonal $\\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$ adalah perkalian elemen diagonal utamanya yaitu...", options: ["24", "9", "12", "6", "1"], correct: 0 },
+        { q: "Determinan matriks diagonal $\\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$ adalah...", options: ["24", "9", "12", "6", "1"], correct: 0 },
         { q: "Determinan matriks segitiga atas $\\begin{pmatrix} 1 & 4 & 5 \\\\ 0 & 2 & 6 \\\\ 0 & 0 & 3 \\end{pmatrix}$ adalah...", options: ["6", "11", "30", "1", "0"], correct: 0 },
-        { q: "Jika $\\det(A) = 0$, maka sistem persamaan linear yang diwakilinya...", options: ["Tidak memiliki solusi unik (tidak ada atau tak hingga)", "Memiliki 1 solusi unik", "Selalu bernilai nol", "Pasti homogen", "Selalu konsisten"], correct: 0 },
+        { q: "Jika $\\det(A) = 0$, maka sistem persamaan linear yang diwakilinya...", options: ["Tidak memiliki solusi unik", "Memiliki 1 solusi unik", "Selalu bernilai nol", "Pasti homogen", "Selalu konsisten"], correct: 0 },
         { q: "Sifat adjoin matriks $A \\cdot Adj(A) = $...", options: ["$\\det(A) \\cdot I$", "$I$", "$\\det(A)$", "$A^{-1}$", "$A^2$"], correct: 0 },
-        { q: "Jika $A = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$, maka $A^{100} = $...", options: ["$I$ (Matriks Identitas)", "100 I", "0", "$A^{10}$", "3 I"], correct: 0 },
+        { q: "Jika $A = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$, maka $A^{100} = $...", options: ["$I$", "100 I", "0", "$A^{10}$", "3 I"], correct: 0 },
         { q: "Jika $A^T$ adalah transpose matriks A, maka $\\det(A^T) = $...", options: ["$\\det(A)$", "$1 / \\det(A)$", "$-\\det(A)$", "$(\\det A)^2$", "0"], correct: 0 },
-        { q: "Determinan matriks yang memiliki dua baris identik (sama persis) bernilai...", options: ["0", "1", "Sama dengan barisnya", "Tak terhingga", "-1"], correct: 0 },
+        { q: "Determinan matriks yang memiliki dua baris identik bernilai...", options: ["0", "1", "Sama dengan barisnya", "Tak terhingga", "-1"], correct: 0 },
         { q: "Vektor baris adalah matriks yang memiliki ordo...", options: ["$1 \\times n$", "$n \\times 1$", "$n \\times n$", "$2 \\times 2$", "$1 \\times 1$"], correct: 0 },
         { q: "Invers matriks diagonal $\\begin{pmatrix} a & 0 \\\\ 0 & b \\end{pmatrix}$ adalah...", options: ["$\\begin{pmatrix} 1/a & 0 \\\\ 0 & 1/b \\end{pmatrix}$", "$\\begin{pmatrix} b & 0 \\\\ 0 & a \\end{pmatrix}$", "$\\begin{pmatrix} -a & 0 \\\\ 0 & -b \\end{pmatrix}$", "$\\begin{pmatrix} 1/b & 0 \\\\ 0 & 1/a \\end{pmatrix}$", "Matriks $I$"], correct: 0 },
-        { q: "Jejak (Trace) dari matriks $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}$ adalah $1 + 5 + 9 = $...", options: ["15", "45", "0", "18", "9"], correct: 0 },
-        { q: "Determinan dari matriks $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}$ bernilai...", options: ["0 (karena baris ber-pola aritmatika)", "15", "-12", "6", "1"], correct: 0 },
-        { q: "Metode eliminasi Gauss-Jordan digunakan untuk mengubah matriks koefisien menjadi...", options: ["Matriks Identitas (Bentuk Eselon Baris Tereduksi)", "Matriks Segitiga Bawah", "Matriks Nol", "Matriks Kofaktor", "Matriks Transpose"], correct: 0 }
+        { q: "Jejak (Trace) dari matriks $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}$ adalah...", options: ["15", "45", "0", "18", "9"], correct: 0 },
+        { q: "Determinan dari matriks $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}$ bernilai...", options: ["0", "15", "-12", "6", "1"], correct: 0 },
+        { q: "Metode eliminasi Gauss-Jordan digunakan untuk mengubah matriks koefisien menjadi...", options: ["Matriks Identitas", "Matriks Segitiga Bawah", "Matriks Nol", "Matriks Kofaktor", "Matriks Transpose"], correct: 0 }
     ];
-
 
     // =========================================================================
     // 3. FISIKA KEJURUAN
     // =========================================================================
-
-    // --- FISIKA LEVEL 1: Besaran, Satuan, Dimensi & Vektor ---
     window.MASTER_QUESTION_BANK.fisika[1] = [
         { q: "Dimensi dari besaran Gaya (Newton) dalam Sistem Internasional (SI) adalah...", options: ["$[M][L][T]^{-2}$", "$[M][L][T]^{-1}$", "$[M][L]^2[T]^{-2}$", "$[M][L]^{-1}[T]^{-2}$", "$[M][T]^{-2}$"], correct: 0 },
         { q: "Dua buah gaya $F_1 = 6\\text{ N}$ dan $F_2 = 8\\text{ N}$ saling tegak lurus. Resultan kedua gaya tersebut adalah...", options: ["10 N", "14 N", "2 N", "48 N", "100 N"], correct: 0 },
@@ -147,160 +137,164 @@ if (window.MASTER_QUESTION_BANK) {
         { q: "Resultan dua gaya $F_1 = 10\\text{ N}$ dan $F_2 = 10\\text{ N}$ yang membentuk sudut $60^\\circ$ adalah...", options: ["$10\\sqrt{3}\\text{ N}$", "10 N", "20 N", "$10\\sqrt{2}\\text{ N}$", "0 N"], correct: 0 },
         { q: "Pengukuran diameter kawat diperoleh $2,05\\text{ mm}$. Banyaknya angka penting pada hasil pengukuran tersebut adalah...", options: ["3 angka penting", "2 angka penting", "1 angka penting", "4 angka penting", "5 angka penting"], correct: 0 },
         { q: "Dimensi dari Tekanan ($P = F/A$) adalah...", options: ["$[M][L]^{-1}[T]^{-2}$", "$[M][L][T]^{-2}$", "$[M][L]^2[T]^{-2}$", "$[M][L]^{-2}[T]^{-2}$", "$[M][L][T]^{-1}$"], correct: 0 },
-        { q: "Vektor $A = 10\\text{ unit}$ membentuk sudut $30^\\circ$ terhadap sumbu X positif. Komponen $A_y$ searah sumbu Y adalah...", options: ["5 unit ($10 \\sin 30^\\circ$)", "$5\\sqrt{3}$ unit", "10 unit", "2.5 unit", "0 unit"], correct: 0 },
+        { q: "Vektor $A = 10\\text{ unit}$ membentuk sudut $30^\\circ$ terhadap sumbu X positif. Komponen $A_y$ searah sumbu Y adalah...", options: ["5 unit", "$5\\sqrt{3}$ unit", "10 unit", "2.5 unit", "0 unit"], correct: 0 },
         { q: "Satuan Hambatan Jenis kawat ($\\rho$) dalam SI adalah...", options: ["$\\Omega\\text{ m}$", "$\\Omega/\\text{m}$", "$\\Omega$", "Volt/m", "Ampere m"], correct: 0 },
         { q: "Pasangan besaran yang memiliki DIMENSI SAMA di bawah ini adalah...", options: ["Usaha dan Energi Kinetik", "Gaya dan Daya", "Kecepatan dan Percepatan", "Massa dan Berat", "Tekanan dan Gaya"], correct: 0 },
-        { q: "Nilai perkalian titik (dot product) dua vektor $\\vec{A} \\cdot \\vec{B}$ jika keduanya saling tegak lurus ($90^\\circ$) adalah...", options: ["0", "A x B", "1", "A + B", "-1"], correct: 0 },
-        { q: "Nilai perkalian silang (cross product) dua vektor searah ($0^\\circ$) adalah...", options: ["0", "A x B", "1", "A / B", "A + B"], correct: 0 },
-        { q: "Besaran turunan Frekuensi memiliki satuan Hertz (Hz), yang setara dengan...", options: ["$s^{-1}$ (1/detik)", "m/s", "kg/s", "N s", "J s"], correct: 0 },
+        { q: "Nilai perkalian titik dua vektor $\\vec{A} \\cdot \\vec{B}$ jika keduanya saling tegak lurus adalah...", options: ["0", "A x B", "1", "A + B", "-1"], correct: 0 },
+        { q: "Nilai perkalian silang dua vektor searah ($0^\\circ$) adalah...", options: ["0", "A x B", "1", "A / B", "A + B"], correct: 0 },
+        { q: "Besaran turunan Frekuensi memiliki satuan Hertz (Hz), yang setara dengan...", options: ["$s^{-1}$", "m/s", "kg/s", "N s", "J s"], correct: 0 },
         { q: "Notasi ilmiah dari massa elektron $0,000000000000000000000000000000911\\text{ kg}$ adalah...", options: ["$9,11 \\times 10^{-31}\\text{ kg}$", "$9,11 \\times 10^{-27}\\text{ kg}$", "$91,1 \\times 10^{-30}\\text{ kg}$", "$9,11 \\times 10^{31}\\text{ kg}$", "$0,911 \\times 10^{-30}\\text{ kg}$"], correct: 0 },
-        { q: "Suatu persegi panjang berukuran panjang $12,5\\text{ cm}$ (3 AP) dan lebar $2,0\\text{ cm}$ (2 AP). Luas menurut aturan angka penting adalah...", options: ["$25\\text{ cm}^2$ (2 AP)", "$25,0\\text{ cm}^2$", "$25,00\\text{ cm}^2$", "$20\\text{ cm}^2$", "$30\\text{ cm}^2$"], correct: 0 },
-        { q: "Jika dua vektor sama besar $F$ menghasilkan resultan sebesar $F$, maka sudut antara kedua vektor tersebut adalah...", options: ["120°", "60°", "90°", "0°", "180°"], correct: 0 },
-        { q: "Satu Tera ($T$) dalam prefix satuan SI setara dengan pengali...", options: ["$10^{12}$", "$10^9$ (Giga)", "$10^6$ (Mega)", "$10^{-12}$ (Piko)", "$10^{15}$"], correct: 0 },
+        { q: "Suatu persegi panjang berukuran $12,5\\text{ cm}$ dan $2,0\\text{ cm}$. Luas menurut aturan angka penting adalah...", options: ["$25\\text{ cm}^2$", "$25,0\\text{ cm}^2$", "$25,00\\text{ cm}^2$", "$20\\text{ cm}^2$", "$30\\text{ cm}^2$"], correct: 0 },
+        { q: "Jika dua vektor sama besar $F$ menghasilkan resultan sebesar $F$, maka sudut antara kedua vektor adalah...", options: ["120°", "60°", "90°", "0°", "180°"], correct: 0 },
+        { q: "Satu Tera ($T$) dalam prefix satuan SI setara dengan...", options: ["$10^{12}$", "$10^9$", "$10^6$", "$10^{-12}$", "$10^{15}$"], correct: 0 },
         { q: "Satu Mikron ($\\mu m$) setara dengan...", options: ["$10^{-6}\\text{ m}$", "$10^{-3}\\text{ m}$", "$10^{-9}\\text{ m}$", "$10^{-12}\\text{ m}$", "$10^{-1}\\text{ m}$"], correct: 0 },
-        { q: "Penggunaan skala nonius pada jangka sorong berfungsi untuk...", options: ["Meningkatkan ketelitian pengukuran hingga pecahan milimeter", "Menjepit benda", "Mengunci pengukuran", "Membaca skala utama", "Mengukur sudut"], correct: 0 }
+        { q: "Penggunaan skala nonius pada jangka sorong berfungsi untuk...", options: ["Meningkatkan ketelitian pengukuran", "Menjepit benda", "Mengunci pengukuran", "Membaca skala utama", "Mengukur sudut"], correct: 0 }
     ];
 
-    // --- FISIKA LEVEL 2: Kinematika: GLB, GLBB & Gerak Parabola ---
     window.MASTER_QUESTION_BANK.fisika[2] = [
         { q: "Sepeda motor melaju dengan kecepatan awal 10 m/s dan mengalami percepatan konstan 2 m/s². Kecepatan motor setelah 5 detik adalah...", options: ["20 m/s", "15 m/s", "25 m/s", "30 m/s", "10 m/s"], correct: 0 },
-        { q: "Jarak yang ditempuh sepeda motor pada soal di atas selama 5 detik ($s = v_0 t + 1/2 a t^2$) adalah...", options: ["75 meter", "50 meter", "100 meter", "25 meter", "60 meter"], correct: 0 },
-        { q: "Ciri utama dari Gerak Lurus Beraturan (GLB) adalah...", options: ["Kecepatan konstan ($v$ tetap) dan percepatan nol ($a = 0$)", "Percepatan konstan", "Kecepatan berubah beraturan", "Lintasan melingkar", "Gaya total tidak nol"], correct: 0 },
+        { q: "Jarak yang ditempuh sepeda motor pada soal di atas selama 5 detik adalah...", options: ["75 meter", "50 meter", "100 meter", "25 meter", "60 meter"], correct: 0 },
+        { q: "Ciri utama dari Gerak Lurus Beraturan (GLB) adalah...", options: ["Kecepatan konstan dan percepatan nol", "Percepatan konstan", "Kecepatan berubah beraturan", "Lintasan melingkar", "Gaya total tidak nol"], correct: 0 },
         { q: "Mobil mengerem dari kecepatan $20\\text{ m/s}$ hingga berhenti dalam jarak $40\\text{ meter}$. Perlambatan mobil adalah...", options: ["5 m/s²", "2 m/s²", "4 m/s²", "10 m/s²", "2.5 m/s²"], correct: 0 },
-        { q: "Benda jatuh bebas dari ketinggian 20 m di atas tanah ($g = 10\\text{ m/s}^2$). Waktu yang dibutuhkan untuk sampai di tanah ($t = \\sqrt{2h/g}$) adalah...", options: ["2 detik", "4 detik", "1 detik", "2.8 detik", "5 detik"], correct: 0 },
-        { q: "Kecepatan benda jatuh bebas saat menyentuh tanah pada soal di atas ($v = \\sqrt{2gh}$) adalah...", options: ["20 m/s", "10 m/s", "40 m/s", "100 m/s", "14 m/s"], correct: 0 },
+        { q: "Benda jatuh bebas dari ketinggian 20 m di atas tanah ($g = 10\\text{ m/s}^2$). Waktu yang dibutuhkan untuk sampai di tanah adalah...", options: ["2 detik", "4 detik", "1 detik", "2.8 detik", "5 detik"], correct: 0 },
+        { q: "Kecepatan benda jatuh bebas saat menyentuh tanah pada soal di atas adalah...", options: ["20 m/s", "10 m/s", "40 m/s", "100 m/s", "14 m/s"], correct: 0 },
         { q: "Pada Gerak Parabola, komponen kecepatan searah sumbu X ($v_x$) bersifat...", options: ["Konstan (GLB)", "GLBB dipercepat", "GLBB diperlambat", "Nol di titik tertinggi", "Selalu berubah"], correct: 0 },
-        { q: "Pada Gerak Parabola, komponen kecepatan searah sumbu Y ($v_y$) bersifat...", options: ["GLBB dipengaruhi gravitasi", "Konstan", "Nol sepanjang lintasan", "Sama dengan $v_x$", "Tidak dipengaruhi $g$"], correct: 0 },
-        { q: "Peluru ditembakkan dengan kecepatan awal $v_0$ dan sudut elevasi $\\theta$. Kecepatan di titik tertinggi adalah...", options: ["$v_x = v_0 \\cos\\theta$ ($v_y = 0$)", "Nol murni", "$v_0 \\sin\\theta$", "$v_0$", "$g \\cdot t$"], correct: 0 },
+        { q: "Pada Gerak Parabola, komponen kecepatan searah sumbu Y ($v_y$) bersifat...", options: ["GLBB dipengaruhi gravitasi", "Konstan", "Nol sepanjang lintasan", "Sama dengan $v_x$", "Tidak dipengaruhi g"], correct: 0 },
+        { q: "Peluru ditembakkan dengan kecepatan awal $v_0$ dan sudut elevasi $\\theta$. Kecepatan di titik tertinggi adalah...", options: ["$v_0 \\cos\\theta$", "Nol murni", "$v_0 \\sin\\theta$", "$v_0$", "$g \\cdot t$"], correct: 0 },
         { q: "Tinggi maksimum ($h_{maks}$) pada gerak parabola dirumuskan...", options: ["$\\frac{v_0^2 \\sin^2\\theta}{2g}$", "$\\frac{v_0^2 \\sin(2\\theta)}{g}$", "$\\frac{v_0 \\sin\\theta}{g}$", "$\\frac{v_0^2 \\cos^2\\theta}{2g}$", "$\\frac{2v_0^2}{g}$"], correct: 0 },
         { q: "Jangkauan mendatar terjauh ($X_{maks}$) pada gerak parabola dirumuskan...", options: ["$\\frac{v_0^2 \\sin(2\\theta)}{g}$", "$\\frac{v_0^2 \\sin^2\\theta}{2g}$", "$\\frac{2v_0 \\sin\\theta}{g}$", "$\\frac{v_0^2 \\cos(2\\theta)}{g}$", "$\\frac{v_0^2}{2g}$"], correct: 0 },
-        { q: "Sudut elevasi $\\theta$ yang menghasilkan JANGKAUAN TERJAUH ($X_{maks}$) pada gerak parabola adalah...", options: ["45°", "30°", "60°", "90°", "15°"], correct: 0 },
-        { q: "Peluru ditembakkan $v_0 = 40\\text{ m/s}$ dengan sudut $30^\\circ$ ($g=10$). Waktu untuk mencapai titik tertinggi ($t_h = \\frac{v_0 \\sin\\theta}{g}$) adalah...", options: ["2 detik", "4 detik", "1 detik", "3 detik", "2.5 detik"], correct: 0 },
+        { q: "Sudut elevasi yang menghasilkan JANGKAUAN TERJAUH pada gerak parabola adalah...", options: ["45°", "30°", "60°", "90°", "15°"], correct: 0 },
+        { q: "Peluru ditembakkan $v_0 = 40\\text{ m/s}$ dengan sudut $30^\\circ$ ($g=10$). Waktu untuk mencapai puncak adalah...", options: ["2 detik", "4 detik", "1 detik", "3 detik", "2.5 detik"], correct: 0 },
         { q: "Tinggi maksimum yang dicapai peluru pada soal di atas adalah...", options: ["20 meter", "40 meter", "10 meter", "80 meter", "15 meter"], correct: 0 },
-        { q: "Waktu total peluru di udara hingga kembali ke tanah ($t_{total}$) adalah...", options: ["2 kali waktu mencapai puncak ($2 t_h$)", "Sama dengan $t_h$", "Setengah $t_h$", "Kuadrat $t_h$", "3 kali $t_h$"], correct: 0 },
-        { q: "Roda berputar 120 rpm (rotasi per menit). Frekuensi putarannya dalam Hz adalah...", options: ["2 Hz", "120 Hz", "60 Hz", "4 Hz", "0.5 Hz"], correct: 0 },
-        { q: "Kecepatan sudut ($\\omega$) roda di atas adalah $\\omega = 2\\pi f = $...", options: ["$4\\pi\\text{ rad/s}$", "$2\\pi\\text{ rad/s}$", "$120\\pi\\text{ rad/s}$", "$240\\pi\\text{ rad/s}$", "$\\pi\\text{ rad/s}$"], correct: 0 },
-        { q: "Percepatan sentripetal ($a_s$) pada gerak melingkar beraturan berjari-jari $r$ dirumuskan...", options: ["$a_s = \\frac{v^2}{r} = \\omega^2 r$", "$a_s = v \\cdot r$", "$a_s = \\omega \\cdot r$", "$a_s = \\frac{\\omega}{r}$", "$a_s = v \\cdot \\omega^2$"], correct: 0 },
-        { q: "Arah percepatan sentripetal pada gerak melingkar selalu menuju ke...", options: ["Pusat lingkaran", "Tepi luar lingkaran", "Arah garis singgung (tangensial)", "Atas", "Bawah"], correct: 0 },
-        { q: "Dua roda A dan B dihubungkan dengan SABUK/RANTAI. Hubungan kecepatan keduanya adalah...", options: ["Kecepatan linier sama ($v_A = v_B$)", "Kecepatan sudut sama ($\\omega_A = \\omega_B$)", "$v_A > v_B$", "$\\omega_A > \\omega_B$", "Frekuensi sama"], correct: 0 },
-        { q: "Dua roda A dan B SESUMBU (sepusat terikat). Hubungan kecepatan keduanya adalah...", options: ["Kecepatan sudut sama ($\\omega_A = \\omega_B$)", "Kecepatan linier sama ($v_A = v_B$)", "$v_A / r_A = v_B / r_B$", "Jawaban A dan C benar", "Frekuensi berbeda"], correct: 0 },
-        { q: "Grafik posisi terhadap waktu ($s - t$) pada GLB berbentuk...", options: ["Garis lurus miring m", "Parabola", "Garis mendatar sejajar sumbu t", "Gelombang sinus", "Lingkaran"], correct: 0 },
-        { q: "Grafik kecepatan terhadap waktu ($v - t$) pada GLBB dipercepat berbentuk...", options: ["Garis lurus naik miring ke atas", "Garis mendatar", "Garis lurus turun", "Parabola", "Lengkung"], correct: 0 },
-        { q: "Luas daerah di bawah kurva grafik $v - t$ menyatakan besarnya...", options: ["Perpindahan / Jarak tempuh ($s$)", "Percepatan ($a$)", "Kecepatan rata-rata", "Waktu tempuh", "Gaya"], correct: 0 },
-        { q: "Kemiringan (gradien) garis pada grafik $v - t$ menyatakan besarnya...", options: ["Percepatan ($a$)", "Jarak tempuh ($s$)", "Posisi awal", "Daya", "Kecepatan"], correct: 0 }
-    ];
-
-
-    // =========================================================================
-    // 4. BAHASA INDONESIA - LEVEL 25 (50 SOAL)
-    // =========================================================================
-    window.MASTER_QUESTION_BANK.indo[25] = [
-        { q: "Sintesis Multi-Teks adalah proses menggabungkan gagasan dari beberapa teks sumber untuk menghasilkan...", options: ["Gagasan/simpulan baru yang utuh, logis, dan saling melengkapi", "Ringkasan tulisan satu teks saja", "Kritik kasar terhadap penulis", "Daftar kata tidak baku", "Salinan kata per kata"], correct: 0 },
-        { q: "Langkah pertama dalam melakukan sintesis dari dua teks yang berbeda topik adalah...", options: ["Menganalisis hubungan kesamaan, perbedaan, atau keterkaitan antar-gagasan kedua teks", "Langsung menulis simpulan", "Mencari kesalahan ejaan di Teks A", "Menghapus Teks B", "Menerjemahkan kedua teks"], correct: 0 },
-        { q: "Invensi Gagasan dalam penulisan esai ilmiah populer bermakna...", options: ["Penemuan atau penciptaan ide baru yang orisinal dan bernilai tambah bagi pembaca", "Penjiplakan karya orang lain", "Pengulangan ide lama tanpa perubahan", "Penerjemahan kamus", "Penggunaan kata gaul"], correct: 0 },
-        { q: "Jika Teks 1 membahas manfaat kendaraan listrik dan Teks 2 membahas kendala infrastruktur stasiun pengisian daya, maka sintesis yang tepat adalah...", options: ["Kendaraan listrik sangat bermanfaat bagi lingkungan, tetapi pengembangannya memerlukan percepatan infrastruktur stasiun pengisian.", "Kendaraan listrik harus dibatalkan.", "Stasiun pengisian daya tidak penting.", "Teks 1 dan Teks 2 tidak berhubungan.", "Kendaraan listrik menyebabkan polusi."], correct: 0 },
-        { q: "Aspek utama yang dinilai dari sebuah invensi gagasan ilmiah adalah...", options: ["Orisinalitas, keaktualan, keandalan logika, dan manfaat praktisnya", "Jumlah kata yang sangat banyak", "Penggunaan bahasa asing", "Bentuk huruf yang menarik", "Nama penulis yang terkenal"], correct: 0 },
-        { q: "Dalam menggabungkan dua pendapat yang bertentangan (Teks A pro dan Teks B kontra), posisi penulis sintesis sebaiknya...", options: ["Bersikap objektif, menimbang argumen kedua pihak, dan merumuskan kompromi/solusi", "Memihak Teks A secara emosional", "Memaki Teks B", "Menolak kedua teks tanpa alasan", "Mengabaikan fakta"], correct: 0 },
-        { q: "Perbedaan utama antara Ringkasan dan Sintesis adalah...", options: ["Ringkasan menyajikan ulang 1 teks secara singkat, Sintesis meracik gabungan beberapa teks menjadi ide baru", "Ringkasan berbentuk puisi", "Sintesis tidak menggunakan fakta", "Ringkasan memuat 100 halaman", "Tidak ada perbedaan"], correct: 0 },
-        { q: "Kata transisi yang cocok untuk menghubungkan dua teks yang saling menguatkan adalah...", options: ["Sejalan dengan hal tersebut, / Hal ini diperkuat oleh,", "Akan tetapi,", "Sebaliknya,", "Meskipun demikian,", "Namun,"], correct: 0 },
-        { q: "Kata transisi yang cocok untuk menghubungkan dua teks yang saling bertentangan adalah...", options: ["Di sisi lain, / Sebaliknya, / Berbeda dengan hal tersebut,", "Selanjutnya,", "Di samping itu,", "Oleh karena itu,", "Demikian pula,"], correct: 0 },
-        { q: "Langkah kritis dalam mengevaluasi dua teks berita tentang peristiwa yang sama adalah...", options: ["Membandingkan keakuratan fakta, kelengkapan unsur 5W+1H, dan netralitas sudut pandang", "Menghitung jumlah paragraf", "Melihat warna gambar foto", "Membaca judulnya saja", "Memilih koran terbanyak"], correct: 0 },
-        { q: "Penggunaan kutipan gabungan dari beberapa ahli (sintesis literatur) berfungsi untuk...", options: ["Memperkuat landasan teoritis dan kredibilitas argumen penulis", "Hiasan halaman", "Memperpanjang daftar pustaka", "Menakuti pembaca", "Menghabiskan ruang"], correct: 0 },
-        { q: "Invensi gagasan yang baik dalam bidang kejuruan otomotif contohnya adalah...", options: ["Gagasan merancang converter kit biogas untuk mesin pertanian ramah lingkungan", "Menyalin resep masakan", "Menulis cerita fiksi novel", "Mencatat nomor mesin", "Membeli sepeda motor baru"], correct: 0 },
-        { q: "Ciri tulisan hasil sintesis yang koheren adalah...", options: ["Adanya alur pemikiran yang runtut dan transisi logis antargagasan sumber", "Kalimat melompat-lompat", "Penggunaan kata kasar", "Tanpa konjungsi", "Banyak kata ambigu"], correct: 0 },
-        { q: "Jika Teks A menyatakan pupuk organik meningkatkan kualitas tanah dan Teks B menyatakan pupuk kimia mempercepat hasil panen, sintesisnya adalah...", options: ["Penggunaan kombinasi pupuk organik dan kimia secara berimbang dapat mengoptimalkan kecepatan panen sekaligus menjaga kualitas tanah.", "Pupuk kimia dilarang murni.", "Pupuk organik tidak berguna.", "Tanaman tidak perlu dipupuk.", "Kedua pupuk merusak tanah."], correct: 0 },
-        { q: "Kreativitas dalam invensi gagasan harus tetap terikat pada prinsip...", options: ["Kebenaran ilmiah dan kelogisan penalaran", "Khayalan fiksi bebas", "Emosi pribadi", "Bahasa pasar", "Mitos kuno"], correct: 0 },
-        { q: "Istilah 'Plagiarisme Terselubung' (Paraphrasing Plagiarism) terjadi apabila penulis...", options: ["Mengubah kata-kata dari teks sumber tanpa mencantumkan sitasi/sumber aslinya", "Mencantumkan nama pengarang", "Membuat ringkasan sendiri", "Menuliskan daftar pustaka lengkap", "Mengutip dengan tanda petik"], correct: 0 },
-        { q: "Teknik Parafrasa yang BENAR dalam sintesis teks adalah...", options: ["Restrukturisasi kalimat dan penggunaan sinonim tanpa mengubah makna asli, tetap disertai sitasi", "Menyalin kata per kata", "Mengubah arti kalimat asli", "Menghapus nama pengarang", "Menggunakan bahasa daerah murni"], correct: 0 },
-        { q: "Sintesis teks dalam Bab II Tinjauan Pustaka Karya Tulis Ilmiah berguna untuk...", options: ["Menunjukkan posisi/peta penelitian saat ini (State of the Art) dan kebaruan penelitian penulis", "Memenuhi syarat 20 halaman", "Menampilkan riwayat hidup ahli", "Menghafal nama pengarang", "Menggantikan metode"], correct: 0 },
-        { q: "Kutipan gabungan dalam APA style: '(Santoso, 2020; Hidayat, 2022)' menunjukkan bahwa...", options: ["Gagasan tersebut didukung oleh dua sumber penelitian dari Santoso dan Hidayat", "Santoso meniru Hidayat", "Buku tersebut ditulis bersama", "Hidayat murid Santoso", "Kedua buku salah"], correct: 0 },
-        { q: "Suatu gagasan dikatakan bernilai 'Kebaruan' (Novelty) apabila...", options: ["Menawarkan pemikiran atau solusi baru yang belum pernah diulas dalam penelitian sebelumnya", "Teks diterbitkan hari ini", "Menggunakan kertas baru", "Harga bukunya mahal", "Penulisnya masih muda"], correct: 0 },
-        { q: "Peran Kemampuan Berpikir Kritis (Critical Thinking) dalam invensi gagasan adalah...", options: ["Mampu mempertanyakan fakta lama, menemukan celah masalah, dan merumuskan ide inovatif", "Menghafal seluruh isi buku", "Menolak semua saran orang lain", "Menerima semua berita di internet", "Menulis cepat tanpa berpikir"], correct: 0 },
-        { q: "Penggabungan data statistik dari BPS dan data survei lapangan dalam satu paragraf sintesis berfungsi untuk...", options: ["Saling memvalidasi dan melengkapi gambaran fakta secara komprehensif", "Membuat pembaca pusing", "Mengacaukan angka", "Pengganti kesimpulan", "Menghias paragraf"], correct: 0 },
-        { q: "Kalimat sintesis: 'Berdasarkan pandangan para ahli di atas, dapat disimpulkan bahwa...' tergolong bagian...", options: ["Penegasan gagasan baru hasil sintesis", "Awal kutipan mentah", "Latar belakang masalah", "Daftar isi", "Kritik sastra"], correct: 0 },
-        { q: "Penyusun sintesis dilarang melakukan 'Cherry Picking', yaitu...", options: ["Hanya mengambil data yang mendukung pendapatnya saja dan sengaja mengabaikan data yang menolak", "Mengutip semua ahli", "Menuliskan daftar pustaka", "Menggunakan bahasa baku", "Membaca seluruh teks"], correct: 0 },
-        { q: "Cherry Picking merupakan bentuk kecurangan akademik karena...", options: ["Menghasilkan gambaran data yang memihak dan tidak objektif", "Terlalu banyak fakta", "Tulisan terlalu panjang", "Menggunakan bahasa asing", "Menyertakan grafik"], correct: 0 },
-        { q: "Langkah penyusunan tabel matriks sintesis (Synthesis Matrix) bermanfaat untuk...", options: ["Memetakan kesamaan dan perbedaan pandangan beberapa penulis berdasarkan variabel topik", "Menggambar garis", "Menghitung kata", "Menulis puisi", "Mencetak buku"], correct: 0 },
-        { q: "Dalam matriks sintesis, kolom digunakan untuk mencatat...", options: ["Nama penulis / sumber literatur", "Jumlah halaman", "Warna kover", "Harga buku", "Kota terbit"], correct: 0 },
-        { q: "Dalam matriks sintesis, baris digunakan untuk mencatat...", options: ["Sub-topik / variabel materi yang dibandingkan", "Tanggal beli buku", "Nama pencetak", "Nomor ISBN", "Nama editor"], correct: 0 },
-        { q: "Proses invensi gagasan dalam penulisan ilmiah berawal dari tahap...", options: ["Identifikasi masalah / menemukan celah penelitian (Research Gap)", "Menulis kesimpulan", "Membuat kover buku", "Mencetak laporan", "Ujian lisan"], correct: 0 },
-        { q: "Research Gap adalah...", options: ["Celah / ruang masalah yang belum terjawab oleh penelitian-penelitian terdahulu", "Kesalahan ejaan buku", "Kerusakan laboratorium", "Perbedaan harga buku", "Keterlambatan terbit"], correct: 0 },
-        { q: "Penulis menemukan Research Gap dengan cara...", options: ["Membaca kritis dan menelaah kelemahan/keterbatasan penelitian-penelitian sebelumnya", "Membaca judul buku saja", "Menebak acak", "Menanyakan ke pembeli buku", "Mengamati gambar kover"], correct: 0 },
-        { q: "Teks sintesis yang baik harus bebas dari 'Kontradiksi Internal', artinya...", options: ["Gagasan antarparagraf tidak saling bertolak belakang atau bertentangan sendiri", "Menggunakan satu paragraf saja", "Tanpa konjungsi", "Bebas dari angka", "Sangat pendek"], correct: 0 },
-        { q: "Sintesis yang menyatukan teori A dan teori B menjadi model C dinamakan...", options: ["Sintesis Konstruktif / Integratif", "Analisis Parsial", "Kritik Destruktif", "Ringkasan murni", "Parafrasa tunggal"], correct: 0 },
-        { q: "Konjungsi 'Berdasarkan temuan kedua riset tersebut,' digunakan untuk mengawali...", options: ["Kalimat penegasan sintesis baru", "Kalimat kutipan langsung", "Latar belakang", "Daftar pustaka", "Pertanyaan retoris"], correct: 0 },
-        { q: "Invensi gagasan di era digital sering memanfaatkan analisis data besar (Big Data) untuk...", options: ["Menemukan tren masalah dan pola kebutuhan masyarakat secara akurat", "Mengisi memori komputer", "Membuat gambar lukisan", "Menghapus akun", "Menjual software"], correct: 0 },
-        { q: "Sifat utama tulisan hasil sintesis adalah 'Sistematis', yang berarti...", options: ["Disusun dengan alur logika yang teratur dan terencana", "Mengikuti selera acak", "Bisa dibalik-balik paragrafnya tanpa arti", "Sangat panjang", "Menggunakan bahasa daerah"], correct: 0 },
-        { q: "Sintesis yang baik tidak sekadar menempelkan kutipan (patchwork), melainkan...", options: ["Menganalisis, menghubungkan, dan membingkai ulang kutipan dalam argumen penulis sendiri", "Menyalin paragraf utuh", "Mengubah nama pengarang", "Menghapus tanda petik", "Membuat puisi"], correct: 0 },
-        { q: "Istilah 'Patchwork Writing' (Tulis Tambal Sulam) dihindari karena...", options: ["Terkesan hanya menumpuk kutipan tanpa ada analisis pemikiran murni dari penulis", "Terlalu bagus", "Bahasa terlalu baku", "Sangat ilmiah", "Susah dibaca"], correct: 0 },
-        { q: "Invensi gagasan yang aplikatif di SMK Kejuruan mengutamakan nilai...", options: ["Kebergunaan produk / solusi bagi dunia usaha dan industri (DU/DI)", "Keindahan lukisan", "Ketebalan berkas", "Gaya bahasa puitis", "Ketenaran penulis"], correct: 0 },
-        { q: "Contoh invensi gagasan di bidang kejuruan otomotif adalah...", options: ["Pengembangan alat pembersih injektor bahan bakar portabel berbiaya murah", "Membeli alat impor mahal", "Mencatat harga sparepart", "Mengkritik montir lain", "Menggambar kover manual"], correct: 0 },
-        { q: "Sintesis argumen yang kuat didukung oleh prinsip 'Triangulasi Data', yaitu...", options: ["Mengecek kebenaran informasi melalui minimal tiga sumber data yang berbeda", "Menggunakan tiga kata sifat", "Menulis dalam tiga paragraf", "Menggunakan tiga bahasa", "Membaca tiga kali"], correct: 0 },
-        { q: "Gaya bahasa dalam menyampaikan invensi gagasan ilmiah harus...", options: ["Persuasif-rasional, lugas, baku, dan denotatif", "Emosional memaki", "Puitis mendayu-dayu", "Sarkastik", "Bahasa gaul"], correct: 0 },
-        { q: "Pernyataan 'Meskipun Peneliti A menolak teori X, bukti empiris terbaru Peneliti B menunjukkan...' tergolong...", options: ["Analisis komparatif sintesis literatur", "Kritik personal", "Sinopsis fiksi", "Identitas buku", "Rekomendasi harga"], correct: 0 },
-        { q: "Invensi gagasan yang telah diuji dan terbukti berhasil dapat dipatenkan sebagai...", options: ["Hak Kekayaan Intelektual (HAKI / Hak Paten)", "Hak cipta lagu", "Daftar pustaka", "Ijazah sekolah", "Surat izin usaha"], correct: 0 },
-        { q: "Tujuan pencantuman Sitasi (Sitasi In-Text) pada kalimat sintesis adalah...", options: ["Menghormati hak cipta pemilik ide asli dan menghindari plagiarisme", "Membuat kalimat keren", "Memenuhi syarat halaman", "Menghiasi paragraf", "Menakut-nakuti pembaca"], correct: 0 },
-        { q: "Format sitasi APA style di dalam teks contohnya...", options: ["(Santoso, 2020) atau menurut Santoso (2020)", "Santoso (Jakarta: Erlangga)", "(2020, Budi Santoso)", "[Santoso, Hal 5]", "Budi Santoso (2020: Erlangga)"], correct: 0 },
-        { q: "Kemampuan menyintesis berbagai informasi merupakan kompetensi tingkat tinggi dalam Taksonomi Bloom yaitu tingkat...", options: ["Mencipta / Evaluasi (C5 / C6 - Higher Order Thinking Skills)", "Mengingat (C1)", "Memahami (C2)", "Menerapkan (C3)", "Menyalin murni"], correct: 0 },
-        { q: "Simpulan akhir sintesis yang baik biasanya memuat...", options: ["Refleksi, proyeksi masa depan, atau rekomendasi tindakan berdasarkan gabungan data", "Daftar isi lengkap", "Biodata penulis", "Pertanyaan baru tanpa solusi", "Ucapan maaf"], correct: 0 },
-        { q: "Invensi gagasan yang dituangkan dalam Proposal Penelitian Bab I-III disusun untuk...", options: ["Mendapatkan persetujuan pelaksanaan proyek/penelitian dari penguji atau penyandang dana", "Mencetak buku novel", "Ujian hafalan", "Promosi penjualan", "Arsip perpustakaan"], correct: 0 },
-        { q: "Proses akhir dari membaca multi-teks hingga menghasilkan karya sintesis dinamakan...", options: ["Literasi Tingkat Lanjut (Advanced Literacy)", "Membaca nyaring", "Mengeja kata", "Menghafal abjad", "Membaca sekilas"], correct: 0 }
+        { q: "Waktu total peluru di udara hingga kembali ke tanah adalah...", options: ["2 kali waktu mencapai puncak", "Sama dengan waktu puncak", "Setengahnya", "Kuadratnya", "3 kali"], correct: 0 },
+        { q: "Roda berputar 120 rpm. Frekuensi putarannya dalam Hz adalah...", options: ["2 Hz", "120 Hz", "60 Hz", "4 Hz", "0.5 Hz"], correct: 0 },
+        { q: "Kecepatan sudut ($\\omega$) roda di atas adalah...", options: ["$4\\pi\\text{ rad/s}$", "$2\\pi\\text{ rad/s}$", "$120\\pi\\text{ rad/s}$", "$240\\pi\\text{ rad/s}$", "$\\pi\\text{ rad/s}$"], correct: 0 },
+        { q: "Percepatan sentripetal ($a_s$) pada gerak melingkar beraturan dirumuskan...", options: ["$a_s = \\frac{v^2}{r} = \\omega^2 r$", "$a_s = v \\cdot r$", "$a_s = \\omega \\cdot r$", "$a_s = \\frac{\\omega}{r}$", "$a_s = v \\cdot \\omega^2$"], correct: 0 },
+        { q: "Arah percepatan sentripetal pada gerak melingkar selalu menuju ke...", options: ["Pusat lingkaran", "Tepi luar", "Arah tangensial", "Atas", "Bawah"], correct: 0 },
+        { q: "Dua roda A dan B dihubungkan dengan SABUK/RANTAI. Hubungan kecepatannya adalah...", options: ["Kecepatan linier sama ($v_A = v_B$)", "Kecepatan sudut sama", "$v_A > v_B$", "$\\omega_A > \\omega_B$", "Frekuensi sama"], correct: 0 },
+        { q: "Dua roda A dan B SESUMBU (sepusat terikat). Hubungan kecepatannya adalah...", options: ["Kecepatan sudut sama ($\\omega_A = \\omega_B$)", "Kecepatan linier sama", "$v_A / r_A = v_B / r_B$", "Jawaban A dan C benar", "Frekuensi berbeda"], correct: 0 },
+        { q: "Grafik posisi terhadap waktu ($s - t$) pada GLB berbentuk...", options: ["Garis lurus miring", "Parabola", "Garis mendatar", "Gelombang sinus", "Lingkaran"], correct: 0 },
+        { q: "Grafik kecepatan terhadap waktu ($v - t$) pada GLBB dipercepat berbentuk...", options: ["Garis lurus naik miring", "Garis mendatar", "Garis lurus turun", "Parabola", "Lengkung"], correct: 0 },
+        { q: "Luas daerah di bawah kurva grafik $v - t$ menyatakan...", options: ["Perpindahan / Jarak tempuh", "Percepatan", "Kecepatan rata-rata", "Waktu tempuh", "Gaya"], correct: 0 },
+        { q: "Kemiringan (gradien) garis pada grafik $v - t$ menyatakan...", options: ["Percepatan", "Jarak tempuh", "Posisi awal", "Daya", "Kecepatan"], correct: 0 }
     ];
 
     // =========================================================================
-    // 5. BAHASA INGGRIS TEKNIK - LEVEL 25 (50 SOAL)
+    // 4. BAHASA INDONESIA
     // =========================================================================
-    window.MASTER_QUESTION_BANK.inggris[25] = [
-        { q: "The primary section of a technical report that summarizes the core findings and recommendations for busy managers is the...", options: ["Executive Summary / Abstract", "Table of Contents", "Glossary", "Appendix B", "Index"], correct: 0 },
-        { q: "Read: 'The machine failed during testing; ..., the product launch was delayed.' Best cohesive transition is...", options: ["consequently / therefore", "however", "in addition", "for example", "although"], correct: 0 },
-        { q: "Technical reports maintain an objective tone by predominantly using...", options: ["Passive voice, third-person perspective, and precise technical terms", "First-person 'I' and 'we' repeatedly", "Slang and casual conversational phrases", "Exclamation marks for emotion", "Fictional metaphors"], correct: 0 },
-        { q: "A paragraph in a technical report possesses 'Unity' when...", options: ["All sentences directly relate to and support the single topic sentence", "It contains at least 10 long sentences", "It includes personal opinions without evidence", "It changes topic every two lines", "It has no punctuation marks"], correct: 0 },
-        { q: "Which section of a formal engineering report contains detailed raw data, raw calculations, and large schematics?", options: ["Appendix / Appendices", "Executive Summary", "Introduction", "Conclusion", "Title Page"], correct: 0 },
-        { q: "Read: 'The new engine is lightweight; ..., it delivers 20% more horsepower than the previous model.' Best transition is...", options: ["moreover / furthermore", "however", "on the contrary", "for example", "despite this"], correct: 0 },
-        { q: "To cite a technical reference using IEEE style in text, you use...", options: ["Numbered brackets e.g., [1], [2]", "Author-date e.g., (Smith, 2020)", "Footnotes at bottom", "Italics only", "Underlined titles"], correct: 0 },
-        { q: "To cite a technical reference using APA style in text, you use...", options: ["Author-date e.g., (Smith, 2020)", "Numbered brackets [1]", "Page numbers only", "Full book title", "Capital letters"], correct: 0 },
-        { q: "The 'Scope' section of a technical proposal defines...", options: ["The boundaries, deliverables, and specific limitations of the project", "The total cost breakdown only", "The biography of workers", "The factory address", "The warranty card"], correct: 0 },
-        { q: "Read: 'The prototype passed all safety tests. ..., it failed the durability test under extreme heat.' Best transition is...", options: ["However / Nevertheless", "In addition", "Therefore", "As a result", "Furthermore"], correct: 0 },
-        { q: "Which statement represents a formal RECOMMENDATION in a technical report?", options: ["It is recommended that the company replace the worn hydraulic pump with Model X-500.", "The pump broke yesterday.", "We like Model X-500.", "Hydraulic pumps are cool.", "Pumps use oil."], correct: 0 },
-        { q: "The 'Problem Statement' in a technical report describes...", options: ["The specific issue or inefficiency that needs to be solved", "The final price of the product", "The list of employees", "The company history", "The user manual steps"], correct: 0 },
-        { q: "Read: 'The solar panel efficiency is low during cloudy days; ..., battery storage is necessary.' Best transition is...", options: ["therefore / as a result", "however", "in contrast", "for instance", "although"], correct: 0 },
-        { q: "In formal technical writing, contractions (such as 'can't', 'won't', 'it's') should be...", options: ["Avoided and written in full ('cannot', 'will not', 'it is')", "Used in every sentence", "Written in italics", "Replaced with slang", "Capitalized"], correct: 0 },
-        { q: "A 'Feasibility Study' report evaluates...", options: ["Whether a proposed engineering project is practical, cost-effective, and viable", "The biography of the chief engineer", "The daily attendance of mechanics", "The color options of cars", "The cleaning schedule"], correct: 0 },
-        { q: "Read: 'Safety gear must be worn at all times; ..., workers will face disciplinary action.' Best transition is...", options: ["otherwise / or else", "however", "in addition", "similarly", "for example"], correct: 0 },
-        { q: "The 'Methodology' section in a technical research report explains...", options: ["How the experiments, tests, and data collection were conducted", "The cost of tools", "The final conclusions", "The author's feelings", "The summary for managers"], correct: 0 },
-        { q: "Which heading represents the section where findings are interpreted and discussed?", options: ["Discussion / Analysis", "Introduction", "References", "Title Page", "Table of Contents"], correct: 0 },
-        { q: "Read: 'The robot arm operates with high speed; ..., it maintains a precision of 0.01 mm.' Best transition is...", options: ["furthermore / in addition", "however", "on the other hand", "consequently", "despite"], correct: 0 },
-        { q: "Using active voice in technical procedures ('Disconnect the wire') is preferred over passive voice because it is...", options: ["More direct, concise, and clear to the operator", "Longer and more formal", "Harder to understand", "Poetic", "Past tense"], correct: 0 },
-        { q: "Read: 'Although the initial cost is high, ...'", options: ["the long-term energy savings make the investment worthwhile.", "it is very expensive.", "the machine broke.", "we did not buy it.", "it uses no power."], correct: 0 },
-        { q: "The term 'Deliverables' in an engineering contract refers to...", options: ["The tangible goods, reports, or services that must be provided upon completion", "The delivery truck drivers", "The raw materials bought", "The tax invoices", "The factory location"], correct: 0 },
-        { q: "Read: 'The circuit breaker tripped ... an unexpected voltage surge.' Best connector is...", options: ["because of / due to", "because", "since", "therefore", "consequently"], correct: 0 },
-        { q: "Which phrase is used to introduce a CONTRASTING technical fact?", options: ["On the other hand / In contrast", "In addition to", "As a result", "For example", "In conclusion"], correct: 0 },
-        { q: "A 'Glossary' in a technical document is...", options: ["An alphabetical list of specialized technical terms with their definitions", "The index of page numbers", "The list of authors", "The cover page", "The table of charts"], correct: 0 },
-        { q: "Read: 'The test failed ... the temperature sensor was miscalibrated.' Best connector is...", options: ["because / since", "due to", "because of", "owing to", "as a result of"], correct: 0 },
-        { q: "An 'Incident Report' in a workshop is filed to document...", options: ["An unexpected workplace accident, injury, or equipment breakdown in detail", "The monthly sales profit", "The hiring of new workers", "The lunch menu", "The tool prices"], correct: 0 },
-        { q: "Read: 'The new alloy is extremely tough. ..., it can withstand high pressure without deforming.' Best transition is...", options: ["In fact / Indeed", "However", "In contrast", "Although", "Otherwise"], correct: 0 },
-        { q: "The phrase 'In accordance with ISO 9001 standards' means...", options: ["Following and complying with the official ISO 9001 quality rules", "Ignoring ISO rules", "Changing ISO rules", "Against ISO rules", "Without testing"], correct: 0 },
-        { q: "In technical report writing, visual aids (figures/tables) should always be...", options: ["Labeled, numbered, and referenced in the text body (e.g., 'see Figure 1')", "Placed at the end without labels", "Unnumbered", "Copied from social media without citation", "Left blank"], correct: 0 },
-        { q: "Read: 'The battery was fully charged; ..., the starter motor failed to turn.' Best transition is...", options: ["nevertheless / yet", "therefore", "furthermore", "consequently", "as a result"], correct: 0 },
-        { q: "Which sentence displays the most PRECISE technical vocabulary?", options: ["The digital micrometer measured a cylinder diameter of 75.02 mm.", "The tool measured a small size.", "The thing was around 75 mm.", "It was measured good.", "Size was 75 mm approximately."], correct: 0 },
-        { q: "The purpose of an 'Executive Summary' is to allow busy stakeholders to...", options: ["Grasp the essential findings and recommendations without reading the full report", "Learn how to solder wires", "Check employee attendance", "Find page numbers", "Read the full 100 pages"], correct: 0 },
-        { q: "Read: 'The engine passed emission tests. ..., it met all fuel economy targets.' Best transition is...", options: ["In addition / Moreover", "However", "In contrast", "On the other hand", "Despite"], correct: 0 },
-        { q: "An 'Audit Report' in a factory evaluates...", options: ["Compliance with safety, quality, and operational standards", "The workers' favorite sports", "The cafeteria food taste", "The factory paint color", "The weather outside"], correct: 0 },
-        { q: "Read: 'The project was completed on time ... severe weather delays.' Best preposition is...", options: ["despite / in spite of", "because of", "due to", "owing to", "as a result of"], correct: 0 },
-        { q: "Which connector indicates a SUMMARY of main points?", options: ["In summary / To conclude / Overall", "To begin with", "For example", "On the contrary", "Because"], correct: 0 },
-        { q: "The term 'Brevity' in technical writing means...", options: ["Expressing ideas concisely using as few words as necessary without losing clarity", "Writing very long sentences", "Using poetic words", "Adding unnecessary details", "Using informal slang"], correct: 0 },
-        { q: "Read: 'The drone battery lasts 30 minutes; ..., extra batteries are included in the kit.' Best transition is...", options: ["therefore / for this reason", "however", "in contrast", "although", "despite"], correct: 0 },
-        { q: "A 'User Specification Manual' provides...", options: ["Technical dimensions, capacities, operating limits, and features of a machine", "The author's life story", "Financial stock prices", "Fictional stories", "Bengkel decor ideas"], correct: 0 },
-        { q: "Read: 'We tested three different lubricants. ..., Synthetic Oil A showed the lowest wear rate.' Best transition is...", options: ["Of the three / Overall", "However", "In contrast", "Although", "Because"], correct: 0 },
-        { q: "Which section gives credit to original authors for data used in the report?", options: ["References / Bibliography", "Title Page", "Abstract", "Table of Contents", "Glossary"], correct: 0 },
-        { q: "Read: 'The turbine blades were inspected for cracks; ..., no defects were detected.' Best transition is...", options: ["fortunately / happily", "however", "consequently", "because", "due to"], correct: 0 },
-        { q: "In formal reports, data values should always include their appropriate...", options: ["Units of measurement (e.g., kW, Nm, PSI, °C)", "Price in dollars only", "Color names", "Font styles", "Nicknames"], correct: 0 },
-        { q: "Read: 'The generator operates quietly, ... making it suitable for residential areas.' Best connector is...", options: ["thereby / thus", "however", "although", "despite", "whereas"], correct: 0 },
-        { q: "The 'Table of Contents' lists...", options: ["Major headings, subheadings, and their corresponding page numbers", "Technical terms definitions", "Part numbers", "Author biographies", "Equipment prices"], correct: 0 },
-        { q: "Read: 'The brake fluid level was low. ..., the technician topped it up to the MAX line.' Best transition is...", options: ["Therefore / Subsequently", "However", "In contrast", "Although", "Despite"], correct: 0 },
-        { q: "Which phrase is used to state a TECHNICAL LIMITATION in a report?", options: ["A major limitation of this study is the small sample size of test vehicles.", "This report is perfect in every way.", "We made no mistakes.", "Machines never break.", "Everything is easy."], correct: 0 },
-        { q: "Read: 'The CNC machine is highly accurate, ... it requires skilled programming.' Best connector is...", options: ["whereas / but", "and", "because", "so", "therefore"], correct: 0 },
-        { q: "The final step before submitting a technical report is...", options: ["Proofreading and editing for clarity, technical accuracy, and formatting errors", "Printing 1000 copies immediately", "Deleting the file", "Changing the title", "Adding fictional stories"], correct: 0 }
+    window.MASTER_QUESTION_BANK.indo[1] = [
+        { q: "Penulisan kata serapan yang sesuai dengan PUEBI/KBBI berikut ini adalah...", options: ["Kualitas", "Kwalitas", "Resiko", "Apotik", "Praktek"], correct: 0 },
+        { q: "Manakah penulisan gelar akademis yang benar sesuai aturan ejaan?", options: ["Dr. Andi, M.Pd.", "Dr Andi M.Pd", "dr. Andi MPd", "Dr. Andi, M.pd", "Dr. Andi MPd."], correct: 0 },
+        { q: "Penulisan tanda baca koma (,) yang tepat terdapat pada kalimat...", options: ["Saya membeli obeng, tang, dan kunci pas.", "Saya membeli obeng tang dan kunci pas.", "Saya membeli obeng, tang dan kunci pas.", "Saya, membeli obeng, tang, dan kunci pas.", "Saya membeli obeng, tang, dan, kunci pas."], correct: 0 },
+        { q: "Kata berimbuhan 'meng-...' yang mengalami peluluhan fonem terjadi pada kata...", options: ["Mengukus (kuku)", "Mengkritik", "Mengubah", "Menggambar", "Mengilap"], correct: 0 },
+        { q: "Kata yang tidak baku di bawah ini adalah...", options: ["Praktek", "Jadwal", "Objek", "Sistem", "Teknik"], correct: 0 },
+        { q: "Penulisan kata depan 'di' yang BENAR sebagai penunjuk tempat adalah...", options: ["Di bengkel", "Dibengkel", "Di-bengkel", "Di Bengkel", "diBengkel"], correct: 0 },
+        { q: "Penulisan imbuhan 'di-' yang BENAR untuk kata kerja pasif adalah...", options: ["Dikerjakan", "Di kerjakan", "Di-kerjakan", "DiKerjakan", "Dikerja kan"], correct: 0 },
+        { q: "Penggunaan tanda titik dua (:) yang BENAR terdapat pada...", options: ["Alat yang dibutuhkan: kunci pas, obeng, dan tang.", "Kita memerlukan alat seperti: kunci pas, obeng, dan tang.", "Saya membeli: busi dan oli.", "Langkah pertama adalah: membersihkan busi.", "Di antaranya adalah: A, B, dan C."], correct: 0 },
+        { q: "Penulisan nama geografi yang BENAR adalah...", options: ["Sungai Citarum", "sungai Citarum", "Sungai citarum", "sungai citarum", "SUNGAI CITARUM"], correct: 0 },
+        { q: "Penulisan kata gabungan ber-imbuhan konfiks (awalan & akhiran) yang BENAR adalah...", options: ["Mempertanggungjawabkan", "Mem pertanggung jawabkan", "Mem-pertanggung-jawabkan", "Mempertanggung jawabkan", "Mem pertanggungjawabkan"], correct: 0 },
+        { q: "Penggunaan cetak miring (italik) digunakan untuk...", options: ["Istilah asing / bahasa daerah", "Nama orang", "Nama lembaga", "Judul bab", "Kata baku"], correct: 0 },
+        { q: "Penulisan angka rupiah yang BENAR adalah...", options: ["Rp15.000,00", "Rp. 15.000,-", "Rp 15.000,-", "RP15000", "Rp: 15.000,00"], correct: 0 },
+        { q: "Penulisan kata ulang yang BENAR adalah...", options: ["Anak-anak", "Anak anak", "Anak2", "Anak_anak", "Anak/anak"], correct: 0 },
+        { q: "Kalimat efektif harus memenuhi syarat hemat kata. Contoh kalimat hemat adalah...", options: ["Siswa SMK menyusun laporan.", "Para siswa-siswa SMK menyusun laporan.", "Siswa-siswa sekalian SMK menyusun laporan.", "Banyak siswa-siswa SMK menyusun laporan.", "Para siswa semua menyusun laporan."], correct: 0 },
+        { q: "Perbaikan kalimat 'Bagi semua siswa SMK wajib mengikuti PKL' yang efektif adalah...", options: ["Semua siswa SMK wajib mengikuti PKL.", "Bagi siswa SMK wajib PKL.", "Bagi semua siswa wajib PKL.", "Siswa SMK bagi wajib PKL.", "Bagi siswa SMK mengikuti PKL."], correct: 0 },
+        { q: "Perbaikan kata yang tidak baku 'praktek' dan 'apotik' adalah...", options: ["Praktik dan apotek", "Praktek dan apotik", "Praktikum dan apotek", "Praktikal dan apotik", "Praktek dan apotek"], correct: 0 },
+        { q: "Kalimat yang MENGGUNAKAN kata ber-imbuhan peluluhan /k, p, t, s/ yang benar adalah...", options: ["Ibu memfokuskan kamera.", "Ibu memfokuskan / mengomunikasikan.", "Ibu mengkomunikasikan.", "Ibu mensucikan.", "Ibu mempraktekkan."], correct: 0 },
+        { q: "Penggunaan tanda hubung (-) yang BENAR untuk merangkaikan se- dengan kata berawalan kapital adalah...", options: ["Se-Indonesia", "Se Indonesia", "SeIndonesia", "se-Indonesia", "SE-INDONESIA"], correct: 0 },
+        { q: "Penulisan kata depan 'ke' yang menunjukkan tempat adalah...", options: ["Ke pasar", "Kepasar", "Ke-pasar", "Ke Pasar", "kePasar"], correct: 0 },
+        { q: "Penulisan kata gabungan terikat 'pasca' yang BENAR adalah...", options: ["Pascapanen", "Pasca panen", "Pasca-panen", "Pasca Panen", "pasca_panen"], correct: 0 },
+        { q: "Penulisan kata gabungan terikat 'antar' yang BENAR adalah...", options: ["Antarkota", "Antar kota", "Antar-kota", "Antar Kota", "antar_kota"], correct: 0 },
+        { q: "Perbaikan kata mubazir 'adalah merupakan' dalam kalimat adalah...", options: ["Memilih salah satu: 'adalah' atau 'merupakan'", "Menggunakan keduanya", "Menambahkan kata 'daripada'", "Mengabaikan", "Mengganti dengan kata 'yaitu adalah'"], correct: 0 },
+        { q: "Kalimat yang MENGGUNAKAN tanda baca koma secara SALAH adalah...", options: ["Siswa yang tidak membawa kartu, tidak boleh masuk.", "Saya membeli busi, oli, dan obeng.", "Karena hujan, pertandingan ditunda.", "Ahmad pergi ke bengkel, sedangkan Budi ke pasar.", "Pak Budi, teknisi kami, sedang mengajar."], correct: 0 },
+        { q: "Penulisan kata 'daripada' yang BENAR adalah...", options: ["Serangkai 'daripada'", "Terpisah 'dari pada'", "Menggunakan tanda hubung 'dari-pada'", "Dicetak miring", "Huruf kapital"], correct: 0 },
+        { q: "Kalimat lugas dan denotatif wajib digunakan dalam tulisan...", options: ["Ilmiah / Resmi", "Puisi", "Novel", "Cerpen", "Drama"], correct: 0 }
+    ];
+
+    window.MASTER_QUESTION_BANK.indo[2] = [
+        { q: "Kalimat Efektif adalah kalimat yang...", options: ["Mampu menyampaikan pesan penulis secara tepat dan mudah dipahami", "Sangat panjang", "Bermakna ganda", "Menggunakan kata-kata sulit", "Berbentuk puisi"], correct: 0 },
+        { q: "Kalimat yang Mengandung Ambiguitas (makna ganda) adalah...", options: ["Istri pegawai yang gemuk itu datang.", "Pegawai gemuk itu datang bersama istrinya.", "Istri dari pegawai gemuk itu datang.", "Pegawai itu datang bersama istrinya.", "Wanita itu datang."], correct: 0 },
+        { q: "Kalimat yang Mengandung Pleonasme (pemborosan kata) adalah...", options: ["Ia naik ke atas gedung.", "Ia naik ke gedung.", "Ia pergi ke atas gedung.", "Ia memanjat gedung.", "Ia berada di atas gedung."], correct: 0 },
+        { q: "Contoh kalimat PARALEL / SEJAJAR yang BENAR di bawah ini adalah...", options: ["Tahapan kerja meliputi pembersihan komponen, pemeriksaan kerusakan, dan penggantian sparepart.", "Tahapan kerja meliputi membersihkan komponen, pemeriksaan kerusakan, dan mengganti sparepart.", "Tahapan kerja meliputi pembersihan komponen, memeriksa kerusakan, dan diganti sparepart.", "Tahapan kerja meliputi dibersihkan komponen, pemeriksaan, dan mengganti.", "Tahapan kerja meliputi pembersihan, diperiksa, dan mengganti."], correct: 0 },
+        { q: "Penyebab tidak efektifnya kalimat 'Dalam laporan ini membahas tentang transmisi' adalah...", options: ["Penggunaan kata depan 'Dalam' di awal yang mengaburkan Subjek", "Penggunaan kata 'membahas'", "Kurang tanda koma", "Terlalu pendek", "Penggunaan bahasa baku"], correct: 0 },
+        { q: "Kalimat yang TIDAK EFEKTIF karena subjek ganda adalah...", options: ["Penyusunan laporan itu saya dibantu oleh teknisi.", "Dalam menyusun laporan itu, saya dibantu teknisi.", "Saya dibantu teknisi saat menyusun laporan.", "Teknisi membantu saya menyusun laporan.", "Laporan disusun oleh saya dan teknisi."], correct: 0 },
+        { q: "Perbaikan kalimat illogis 'Waktu dan tempat kami persilakan' adalah...", options: ["Bapak Kepala Sekolah kami persilakan menyampaikan sambutan.", "Waktu dipersilakan.", "Tempat dipersilakan.", "Waktu dan tempat diberikan.", "Kepada waktu dipersilakan."], correct: 0 },
+        { q: "Kalimat yang Mengandung Kontaminasi / Kerancuan bahasa adalah...", options: ["Para siswa-siswa saling bantu-membantu.", "Siswa saling membantu.", "Para siswa membantu.", "Siswa membantu.", "Para siswa saling bantu."], correct: 0 },
+        { q: "Perbaikan kalimat 'Sangat mahal sekali' menjadi hemat adalah...", options: ["Sangat mahal (atau: Mahal sekali)", "Sangat mahal sekali banget", "Amat sangat mahal sekali", "Makin mahal sekali", "Sangat amat mahal"], correct: 0 },
+        { q: "Kalimat majemuk bertingkat anak kalimat Keterangan Waktu ditandai konjungsi...", options: ["Ketika, setelah, sebelum, sejak", "Karena, sebab", "Jika, apabila", "Meskipun, walaupun", "Agar, supaya"], correct: 0 },
+        { q: "Kalimat majemuk bertingkat anak kalimat Keterangan Syarat ditandai konjungsi...", options: ["Jika, apabila, bilamana", "Sebab, karena", "Sehingga, sampai-sampai", "Meskipun", "Agar"], correct: 0 },
+        { q: "Kalimat majemuk bertingkat anak kalimat Keterangan Tujuan ditandai konjungsi...", options: ["Agar, supaya, demi", "Karena, sebab", "Jika, apabila", "Seperti", "Bahwa"], correct: 0 },
+        { q: "Ciri Kepaduan (Kohesi) pada paragraf ditunjukkan oleh...", options: ["Penggunaan kata transisi / konjungsi yang tepat antar-kalimat", "Penggunaan kata asing", "Jumlah huruf yang genap", "Tanpa kata hubung", "Menggunakan tanda tanya"], correct: 0 },
+        { q: "Ciri Keutuhan (Koherensi) pada paragraf ditunjukkan oleh...", options: ["Adanya alur penalaran logis yang mendukung satu ide pokok utama", "Penggunaan kata baku", "Kalimat yang panjang", "Banyak kata sifat", "Penggunaan angka"], correct: 0 },
+        { q: "Kalimat yang MENGGUNAKAN konjungsi antarkalimat perlawanan yang benar adalah...", options: ["Akan tetapi, masalah tersebut belum selesai.", "Tetapi masalah belum selesai.", "Namun masalah belum selesai.", "Melainkan masalah belum selesai.", "Sedangkan masalah belum selesai."], correct: 0 },
+        { q: "Penulisan konjungsi antarkalimat 'Oleh karena itu' yang BENAR adalah...", options: ["Oleh karena itu, kita harus waspada.", "Oleh karena itu kita harus waspada.", "Oleh karena itu; kita harus waspada.", "Oleh Karena Itu, kita harus waspada.", "Oleh_karena_itu, kita waspada."], correct: 0 },
+        { q: "Kalimat efektif 'Buku itu sudah saya baca' merupakan bentuk pasif dari...", options: ["Saya sudah membaca buku itu.", "Buku membaca saya.", "Membaca saya buku itu.", "Buku itu dibaca saya.", "Saya dibaca buku itu."], correct: 0 },
+        { q: "Penyuntingan kalimat 'Ia bekerja keras agar supaya lulus' yang benar adalah...", options: ["Ia bekerja keras agar lulus. (atau: supaya lulus)", "Ia bekerja keras agar supaya.", "Ia bekerja keras untuk agar lulus.", "Ia bekerja keras dan supaya lulus.", "Ia bekerja keras supaya agar lulus."], correct: 0 },
+        { q: "Kalimat 'Di dalam ruang bengkel terdapat berbagai alat-alat' hematnya menjadi...", options: ["Di dalam ruang bengkel terdapat berbagai alat.", "Di dalam bengkel terdapat banyak alat-alat.", "Di bengkel ada bermacam alat-alat.", "Di ruang bengkel terdapat berbagai macam alat-alat.", "Di bengkel terdapat berbagai alat-alat."], correct: 0 },
+        { q: "Penyuntingan kalimat 'Yang membawa HP harap dimatikan' agar logis adalah...", options: ["HP yang dibawa harap dimatikan.", "Orang yang membawa HP harap dimatikan.", "Yang membawa HP harap mati.", "Dimatikan orang yang membawa HP.", "Membawa HP harap dimatikan."], correct: 0 },
+        { q: "Penggunaan tanda koma (,) wajib diletakkan jika anak kalimat...", options: ["Mendahului induk kalimat dalam kalimat majemuk bertingkat", "Berada di belakang induk kalimat", "Berupa kalimat tunggal", "Hanya terdiri dari subjek predikat", "Berada di akhir paragraf"], correct: 0 },
+        { q: "Kalimat majemuk setara rapatan subjek contohnya adalah...", options: ["Ahmad membuka kap mesin lalu mengukur tegangan baterai.", "Ahmad membuka kap mesin dan Budi mengukur tegangan.", "Jika Ahmad datang, Budi pergi.", "Ahmad tahu bahwa Budi pintar.", "Meskipun hujan, Ahmad berangkat."], correct: 0 },
+        { q: "Penyebab ke-tidak-efektifan kalimat 'Berdasarkan pemeriksaan laboratorium menunjukkan bahwa...' adalah...", options: ["Hilangnya Subjek kalimat akibat frasa Keterangan di awal", "Penggunaan kata menunjukkan", "Kata laboratorium tidak baku", "Terlalu pendek", "Penggunaan kata bahwa"], correct: 0 },
+        { q: "Perbaikan kalimat 'Pabrik itu memproduksi daripada sparepart' adalah...", options: ["Pabrik itu memproduksi sparepart.", "Pabrik itu memproduksi dari sparepart.", "Pabrik itu produksi daripada sparepart.", "Pabrik memproduksi akan sparepart.", "Pabrik diproduksi sparepart."], correct: 0 },
+        { q: "Ciri kalimat baku dalam penulisan laporan resmi adalah...", options: ["Sesuai kaidah PUEBI/EYD, bernalar logis, dan hemat kata", "Menggunakan bahasa gaul", "Menggunakan bahasa daerah", "Penuh bunga bahasa puitis", "Singkat tanpa predikat"], correct: 0 }
+    ];
+
+    // =========================================================================
+    // 5. BAHASA INGGRIS TEKNIK
+    // =========================================================================
+    window.MASTER_QUESTION_BANK.inggris[1] = [
+        { q: "The mechanic ... the engine oil yesterday afternoon.", options: ["changed", "changes", "has changed", "is changing", "will change"], correct: 0 },
+        { q: "We ... in this automotive workshop for two years.", options: ["have worked", "work", "worked", "are working", "will work"], correct: 0 },
+        { q: "Look! The chief engineer ... the new prototype right now.", options: ["is inspecting", "inspects", "inspected", "has inspected", "was inspecting"], correct: 0 },
+        { q: "If I ... a certified technician, I would fix the hydraulic system.", options: ["were", "am", "was", "be", "been"], correct: 0 },
+        { q: "What is the past participle (V3) of the verb 'Drive'?", options: ["Driven", "Drove", "Driving", "Drives", "Drived"], correct: 0 },
+        { q: "He ... to the workshop yesterday.", options: ["went", "go", "goes", "gone", "going"], correct: 0 },
+        { q: "The pistons ... up and down inside the cylinder block.", options: ["move", "moves", "moving", "moved", "has moved"], correct: 0 },
+        { q: "You ... wear safety goggles while operating the grinding machine.", options: ["must", "might", "can", "could", "would"], correct: 0 },
+        { q: "What is the synonym of 'Maintain' in workshop operations?", options: ["Keep / Servicing", "Destroy", "Purchase", "Damage", "Assembly"], correct: 0 },
+        { q: "The multimeter is an instrument used ... electrical voltage.", options: ["to measure", "measure", "measured", "measuring", "measures"], correct: 0 },
+        { q: "Automotive technology is becoming ... advanced than ten years ago.", options: ["more", "most", "as", "much", "little"], correct: 0 },
+        { q: "We have ... this workshop equipment since 2022.", options: ["used", "use", "using", "uses", "to use"], correct: 0 },
+        { q: "What is the past tense (V2) of 'Break'?", options: ["Broke", "Broken", "Breaking", "Breaks", "Breaked"], correct: 0 },
+        { q: "The technician ... the battery voltage right now.", options: ["is testing", "tests", "tested", "has tested", "was testing"], correct: 0 },
+        { q: "If you press the emergency button, the machine ... immediately.", options: ["will stop", "stopped", "would stop", "had stopped", "stopping"], correct: 0 },
+        { q: "An ammeter is used to measure electric ...", options: ["Current", "Voltage", "Resistance", "Power", "Temperature"], correct: 0 },
+        { q: "A voltmeter is used to measure electric ...", options: ["Voltage", "Current", "Resistance", "Power", "Heat"], correct: 0 },
+        { q: "An ohmmeter is used to measure electrical ...", options: ["Resistance", "Current", "Voltage", "Power", "Capacitance"], correct: 0 },
+        { q: "Which word is an ADJECTIVE?", options: ["Fast", "Run", "Quickly", "Runner", "Running"], correct: 0 },
+        { q: "Which word is an ADVERB?", options: ["Carefully", "Careful", "Care", "Caring", "Careless"], correct: 0 },
+        { q: "What is the primary function of engine coolant?", options: ["To prevent overheating", "To lubricate gears", "To ignite fuel", "To clean exhaust", "To charge battery"], correct: 0 },
+        { q: "What is the primary function of engine oil?", options: ["To lubricate moving parts", "To cool the radiator", "To mix with gasoline", "To clean tires", "To ignite spark"], correct: 0 },
+        { q: "Choose the correct spelling:", options: ["Maintenance", "Maintenence", "Mantenance", "Maintenanse", "Maintainance"], correct: 0 },
+        { q: "Choose the correct spelling:", options: ["Equipment", "Equipement", "Equipmint", "Eqipment", "Equipmet"], correct: 0 },
+        { q: "The spark plug is used to ... the fuel mixture.", options: ["ignite", "cool", "clean", "filter", "compress"], correct: 0 }
+    ];
+
+    window.MASTER_QUESTION_BANK.inggris[2] = [
+        { q: "You ... wear a helmet while riding a motorcycle.", options: ["must", "can", "may", "might", "shall"], correct: 0 },
+        { q: "Technicians ... follow safety procedures at all times.", options: ["should", "could", "might", "would", "may"], correct: 0 },
+        { q: "You ... not touch live wires with bare hands.", options: ["must", "can", "may", "might", "would"], correct: 0 },
+        { q: "We ... leave the workshop before cleaning our tools.", options: ["should not", "can", "may", "must", "might"], correct: 0 },
+        { q: "... I borrow your 12mm socket wrench, please?", options: ["May / Can", "Must", "Should", "Would", "Will"], correct: 0 },
+        { q: "The mechanic ... fix the transmission in two hours.", options: ["can", "must", "may", "should", "might"], correct: 0 },
+        { q: "Modal auxiliary expressing OBLIGATION is...", options: ["Must / Have to", "Can", "May", "Might", "Could"], correct: 0 },
+        { q: "Modal auxiliary expressing ABILITY is...", options: ["Can / Be able to", "Must", "May", "Should", "Will"], correct: 0 },
+        { q: "Modal auxiliary expressing PERMISSION is...", options: ["May / Can", "Must", "Should", "Would", "Had to"], correct: 0 },
+        { q: "Modal auxiliary expressing ADVICE is...", options: ["Should / Ought to", "Must", "Can", "May", "Will"], correct: 0 },
+        { q: "If the engine is overheating, you ... stop the car.", options: ["must / should", "can", "may", "might", "could"], correct: 0 },
+        { q: "You ... wear safety goggles when grinding metal.", options: ["have to", "may", "might", "can", "could"], correct: 0 },
+        { q: "He ... speak three languages fluently.", options: ["can", "must", "should", "may", "might"], correct: 0 },
+        { q: "The workshop ... open at 8:00 AM tomorrow.", options: ["will", "can", "must", "may", "should"], correct: 0 },
+        { q: "It ... rain this afternoon, so close the workshop windows.", options: ["might / may", "must", "can", "should", "will"], correct: 0 },
+        { q: "You ... not smoke near the fuel storage area.", options: ["must", "can", "may", "should", "would"], correct: 0 },
+        { q: "All workers ... wear steel-toed boots in the factory.", options: ["are required to / must", "may", "can", "might", "could"], correct: 0 },
+        { q: "I ... finish this diagnostic report by 5 PM.", options: ["have to", "may", "might", "could", "can"], correct: 0 },
+        { q: "She ... operate the CNC machine very well.", options: ["can", "must", "may", "should", "might"], correct: 0 },
+        { q: "... you please hand me the pliers?", options: ["Could / Would", "Must", "May", "Should", "Might"], correct: 0 },
+        { q: "Passengers ... fasten their seatbelts during the ride.", options: ["must", "can", "may", "might", "could"], correct: 0 },
+        { q: "You ... check the oil level before a long trip.", options: ["should", "can", "may", "might", "could"], correct: 0 },
+        { q: "The battery ... be dead because the lights won't turn on.", options: ["must", "can", "may", "should", "would"], correct: 0 },
+        { q: "We ... not enter the restricted area without a permit.", options: ["must", "can", "may", "should", "might"], correct: 0 },
+        { q: "You ... always double-check the torque settings.", options: ["should", "can", "may", "might", "could"], correct: 0 }
     ];
 
 }
