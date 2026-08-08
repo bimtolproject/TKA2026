@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank soal & Latihan soal TKA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX Engine untuk Render Notasi Matematika Visual -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-20">
+
+    <header class="bg-blue-900 text-white p-6 shadow-lg mb-6">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold italic">BANK SOAL TKA SMK</h1>
+                <p class="text-blue-200 mt-1">Sistem 26 Level (L1-19, Evaluasi 50 Soal, Pengayaan L21-25 & Ujian Akhir L26)</p>
+            </div>
+            <div class="flex items-center gap-3 bg-blue-800 p-3 rounded-xl border border-blue-700">
+                <label for="levelSelect" class="font-semibold text-sm">Pilih:</label>
+                <select id="levelSelect" onchange="changeLevel(this.value)" class="bg-white text-gray-900 font-bold px-3 py-1.5 rounded-lg text-sm border-none outline-none cursor-pointer">
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4">
+        <!-- Banner Info Level -->
+        <div id="levelBanner" class="p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md">
+            <div>
+                <h2 id="levelTitle" class="text-xl font-bold">Level 1</h2>
+                <p id="levelDesc" class="text-xs md:text-sm opacity-90">Target: 25 Soal per Mapel</p>
+            </div>
+            <div class="text-right">
+                <span id="topicBadge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">45 Menit</span>
+            </div>
+        </div>
+
+        <!-- Tab Navigasi Mapel -->
+        <nav class="flex flex-wrap border-b border-gray-200 mb-6 gap-2" id="subjectTabs">
+            <button onclick="switchSubject('matumu')" class="tab-link px-4 py-2 font-semibold text-blue-600 border-b-2 border-blue-600" data-subject="matumu">Matematika Umum</button>
+            <button onclick="switchSubject('matlan')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="matlan">Matematika Lanjut</button>
+            <button onclick="switchSubject('fisika')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="fisika">Fisika</button>
+            <button onclick="switchSubject('indo')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="indo">Bahasa Indonesia</button>
+            <button onclick="switchSubject('inggris')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="inggris">Bahasa Inggris</button>
+        </nav>
+
+        <!-- Info Materi Aktif -->
+        <div id="materialInfo" class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6 rounded-r-lg text-blue-900 text-sm">
+            <!-- Disikan dinamis -->
+        </div>
+
+        <!-- Area Konten Soal -->
+        <div id="contentArea"></div>
+    </main>
+
+
+
+    <!-- INISIALISASI BANK SOAL UTAMA -->
+    <script>
+        window.MASTER_QUESTION_BANK = {
+            matumu: {},
+            matlan: {},
+            fisika: {},
+            indo: {},
+            inggris: {}
+        };
+    </script>
+
+    <!-- PANGGULAN SELURUH PART BANK SOAL -->
+    <script src="bank_soal_part1.js"></script>
+    <script src="bank_soal_part2.js"></script>
+    <script src="bank_soal_part3.js"></script>
+    <script src="bank_soal_part4.js"></script>
+    <script src="bank_soal_part5.js"></script>
+    <script src="bank_soal_part6.js"></script>
+    <script src="bank_soal_part7.js"></script>
+    <script src="bank_soal_part8.js"></script>
+    <script src="bank_soal_part9.js"></script>
+    <script src="bank_soal_part10.js"></script>
+    <script src="bank_soal_part11.js"></script>
+    <script src="bank_soal_final.js"></script>
+
+    <!-- ENGINE LOGIKA APLIKASI -->
+    <script>
+        const EVALUATION_LEVELS = [5, 10, 15, 20];
+        let currentLevel = parseInt(localStorage.getItem('user_level')) || 1;
+        let activeSubject = 'matumu';
+
+        const SYLLABUS = {
+            matumu: {
+                1: "Eksponen, Bentuk Akar & Logaritma", 2: "Persamaan & Pertidaksamaan Kuadrat", 3: "Sistem Persamaan Linear Dua & Tiga Variabel", 4: "Fungsi Kuadrat & Grafik Fungsi",
+                5: "EVALUASI (Pengulangan lvl 1-4)",
+                6: "Matriks: Operasi, Determinan & Invers", 7: "Barisan & Deret Aritmatika-Geometri", 8: "Trigonometri Dasar & Sudut Istimewa", 9: "Geometri Dimensi Tiga (Jarak & Sudut)",
+                10: "EVALUASI (Pengulangan lvl 6-9)",
+                11: "Statistika: Ukuran Pemusatan & Penyebaran", 12: "Kaidah Pencacahan: Permutasi & Kombinasi", 13: "Peluang Kejadian Tunggal & Majemuk", 14: "Limit Fungsi Aljabar & Tak Hingga",
+                15: "EVALUASI (Pengulangan lvl 11-14)",
+                16: "Turunan Fungsi Aljabar Dasar", 17: "Aplikasi Turunan: Maksimum, Minimum & Garis Singgung", 18: "Integral Tak Tentu & Tentu Aljabar", 19: "Aplikasi Integral Luas Daerah",
+                20: "EVALUASI (Pengulangan lvl 16-19)",
+                21: "Persamaan Trigonometri & Grafik Fasa", 22: "Persamaan Kuadrat Baru & Sifat Akar", 23: "Statistika Lanjut: Desil & Persentil Kelompok", 24: "Peluang Bersyarat & Kombinatorika Kompleks", 25: "Kalkulus Lanjut: Limit L'Hopital & Luas Dua Kurva",
+                26: "MASTER FINAL EXAM - lvl 1-25)"
+            },
+            matlan: {
+                1: "Polinomial: Pembagian & Teorema Sisa", 2: "Matriks Lanjut Ordo 3x3 & Invers", 3: "Vektor Dimensi Tiga & Proyeksi", 4: "Fungsi Komposisi & Fungsi Invers Kompleks",
+                5: "EVALUASI (Pengulangan lvl 1-4)",
+                6: "Trigonometri Lanjut & Identitas Jumlah Sudut", 7: "Limit Fungsi Trigonometri", 8: "Turunan Fungsi Trigonometri", 9: "Aplikasi Turunan Trigonometri & Kurva",
+                10: "EVALUASI (Pengulangan lvl 6-9)",
+                11: "Integral Substitusi & Parsial", 12: "Aplikasi Integral Volume Benda Putar", 13: "Persamaan Lingkaran & Garis Singgung", 14: "Irisan Kerucut: Elips & Parabola",
+                15: "EVALUASI (Pengulangan lvl 11-14)",
+                16: "Matriks Transformasi Geometri", 17: "Barisan & Deret Tak Hingga Lanjut", 18: "Logika Matematika & Penarikan Kesimpulan", 19: "Bilangan Kompleks & Bentuk Polar",
+                20: "EVALUASI (Pengulangan lvl 16-19)",
+                21: "Komposisi Transformasi Geometri Matriks", 22: "Persamaan Lingkaran & Garis Singgung Luas/Dalam", 23: "Asimtot & Garis Singgung Parabola/Elips", 24: "Integral Parsial Tanzalin & Volume Dua Kurva", 25: "Operasi & Bentuk Polar/Euler Bilangan Kompleks",
+                26: "MASTER FINAL EXAM - lvl 1-25)"
+            },
+            fisika: {
+                1: "Besaran, Satuan, Dimensi & Vektor", 2: "Kinematika: GLB, GLBB & Gerak Parabola", 3: "Dinamika: Hukum Newton & Gaya Gesek", 4: "Usaha, Energi & Daya Efisiensi",
+                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                6: "Impuls, Momentum & Tumbukan", 7: "Dinamika Rotasi & Momen Inersia", 8: "Keseimbangan Benda Tegar & Momen Gaya (Torsi)", 9: "Fluida Statis: Tekanan Hidrostatis & Archimedes",
+                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                11: "Fluida Dinamis: Kontinuitas & Asas Bernoulli", 12: "Suhu, Kalor & Azas Black", 13: "Termodinamika & Mesin Carnot", 14: "Gelombang Bunyi & Efek Doppler",
+                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                16: "Optik Geometri & Cermin/Lensa", 17: "Listrik Searah (DC) & Hukum Kirchhoff", 18: "Listrik Statis & Medan Listrik", 19: "Induksi Elektromagnetik & Transformator",
+                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                21: "Listrik Arus Bolak-Balik (AC) & Rangkaian RLC", 22: "Impedansi, Reaktansi & Resonansi RLC", 23: "Teori Relativitas Khusus & Efek Fotolistrik", 24: "Fisika Inti, Radioaktivitas & Waktu Paruh", 25: "Optik Fisis: Interferensi & Difraksi Celah",
+                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+            },
+            indo: {
+                1: "Ejaan PUEBI/EYD, Kata Baku & Tanda Baca", 2: "Kalimat Efektif & Struktur Kalimat Ambigu", 3: "Ide Pokok, Kalimat Utama & Paragraf Deduktif", 4: "Teks LHO: Verba Relasional & Spesifikasi",
+                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                6: "Teks Eksplanasi: Kausalitas & Kronologis", 7: "Teks Prosedur: Konjungsi Temporal & Imperatif", 8: "Teks Eksposisi: Analisis Fakta & Opini", 9: "Teks Editorial: Argumentasi & Keberpihakan",
+                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                11: "Teks Argumentasi: Penalaran Induktif/Deduktif", 12: "Teks Negosiasi: Pengajuan & Penawaran", 13: "Makna Lexikal, Gramatikal & Kiasan", 14: "Konjungsi Intrakalimat & Antarkalimat",
+                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                16: "Analisis Kritis Teks & Paragraf Rumpang", 17: "Rangkuman, Simpulan & Invensi Teks", 18: "Karya Tulis Ilmiah & Daftar Pustaka APA", 19: "Literasi Kompleks: Diagram & Infografis",
+                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                21: "Penyuntingan Ejaan, Kata Baku & Tanda Baca (Editing)", 22: "Analisis Struktur & Keefektifan Kalimat Kompleks", 23: "Analisis Kritik, Resensi & Kualitas Karya", 24: "Literasi Informasi Kompleks: Infografis & Tabel Silang", 25: "Invensi Gagasan & Sintesis Multi-Teks",
+                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+            },
+            inggris: {
+                1: "Tenses: Present Perfect & Past Simple", 2: "Modal Auxiliaries & Necessity (Must/Should)", 3: "Passive Voice in Technical Context", 4: "Relative Clauses (Who, Which, Whose)",
+                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                6: "Conditional Sentences Type 2 & 3", 7: "Causative Verbs (Have, Get, Make)", 8: "Direct & Indirect Speech Reporting", 9: "Comparison: As...As, Comparative, Superlative",
+                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                11: "Reading: Main Idea & Paragraph Intent", 12: "Reading: Specific Information & Scan", 13: "Reading: Synonym & Antonym in Context", 14: "Cause & Effect Connectors (Due to, Owing to)",
+                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                16: "Procedure Text: Technical Manuals Analysis", 17: "Analytical Exposition Text Analysis", 18: "Cohesion & Coherence in Writing", 19: "Cloze Test: Vocabulary Completion",
+                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                21: "Troubleshooting Chart & Diagnostic Passages", 22: "Verbs Followed by Gerund vs. Infinitive", 23: "Complex Mixed Conditionals (Type 2 & 3)", 24: "Inversion & Advanced Sentence Structures", 25: "Technical Report Writing & Cohesion Analysis",
+                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+            }
+        };
+
+        function getQuestionList(subjectKey, count, level) {
+            const list = [];
+            const isEval = EVALUATION_LEVELS.includes(level);
+            const isSpecial = level >= 21 && level <= 25;
+            const isFinal = level === 26;
+            const subBank = window.MASTER_QUESTION_BANK[subjectKey] || {};
+
+            if (isFinal) {
+                // Level 26: 125 Soal Ujian Akhir (Merangkum 5 Soal dari Setiap Level 1-25)
+                let questionNo = 1;
+                for (let l = 1; l <= 25; l++) {
+                    const lQuestions = subBank[l] || [];
+                    for (let i = 0; i < 5; i++) {
+                        if (lQuestions[i]) {
+                            list.push({
+                                id: `L26-${subjectKey}-Q${questionNo}`,
+                                q: `${questionNo}. [SOAL MASTER UJIAN AKHIR - DARI LEVEL ${l}] ${lQuestions[i].q}`,
+                                options: lQuestions[i].options,
+                                correct: lQuestions[i].correct
+                            });
+                            questionNo++;
+                        }
+                    }
+                }
+            } 
+            else if (isEval) {
+                // Level 5, 10, 15, 20: Pemerataan Adil (13, 12, 13, 12 = 50 Soal dari 4 Level Sebelumnya)
+                const startPrevLevel = level - 4;
+                let questionNo = 1;
+                const distribution = [13, 12, 13, 12];
+
+                for (let idx = 0; idx < 4; idx++) {
+                    const targetL = startPrevLevel + idx;
+                    const quota = distribution[idx];
+                    const lQuestions = subBank[targetL] || [];
+
+                    for (let i = 0; i < quota; i++) {
+                        if (lQuestions[i]) {
+                            list.push({
+                                id: `L${level}-${subjectKey}-EVAL-from-L${targetL}-${i+1}`,
+                                q: `${questionNo}. [EVALUASI LEVEL ${targetL}] ${lQuestions[i].q}`,
+                                options: lQuestions[i].options,
+                                correct: lQuestions[i].correct
+                            });
+                            questionNo++;
+                        }
+                    }
+                }
+            } 
+            else if (isSpecial) {
+                // Level 21-25: 50 Soal Pengayaan per Mapel
+                const specialQuestions = subBank[level] || [];
+                for (let i = 1; i <= 50; i++) {
+                    if (specialQuestions[i - 1]) {
+                        const qData = specialQuestions[i - 1];
+                        list.push({
+                            id: `L${level}-${subjectKey}-${i}`,
+                            q: `${i}. ${qData.q}`,
+                            options: qData.options,
+                            correct: qData.correct
+                        });
+                    }
+                }
+            } 
+            else {
+                // Level Reguler 1-19 (25 Soal Unik)
+                const currentQuestions = subBank[level] || [];
+                for (let i = 1; i <= count; i++) {
+                    if (currentQuestions[i - 1]) {
+                        const qData = currentQuestions[i - 1];
+                        list.push({
+                            id: `L${level}-${subjectKey}-${i}`,
+                            q: `${i}. ${qData.q}`,
+                            options: qData.options,
+                            correct: qData.correct
+                        });
+                    }
+                }
+            }
+            return list;
+        }
+
+        function getStorageProgress() {
+            return JSON.parse(localStorage.getItem('tka_final_26_progress')) || {};
+        }
+
+        function saveAnswer(questionId, selectedIdx) {
+            const progress = getStorageProgress();
+            progress[questionId] = selectedIdx;
+            localStorage.setItem('tka_final_26_progress', JSON.stringify(progress));
+        }
+
+        function initLevelDropdown() {
+            const select = document.getElementById('levelSelect');
+            select.innerHTML = '';
+            for (let l = 1; l <= 26; l++) {
+                const isEval = EVALUATION_LEVELS.includes(l);
+                const isSpecial = l >= 21 && l <= 25;
+                const isFinal = l === 26;
+
+                const option = document.createElement('option');
+                option.value = l;
+
+                if (isFinal) {
+                    option.textContent = `Level 26 ★ (125 Soal Ujian)`;
+                } else if (isSpecial) {
+                    option.textContent = `Level ${l} ◆ (50 Soal)`;
+                } else if (isEval) {
+                    option.textContent = `Level ${l} ★ (50 Soal Evaluasi)`;
+                } else {
+                    option.textContent = `Level ${l} (25 Soal)`;
+                }
+
+                if (l === currentLevel) option.selected = true;
+                select.appendChild(option);
+            }
+        }
+
+        function changeLevel(level) {
+            currentLevel = parseInt(level);
+            localStorage.setItem('user_level', currentLevel);
+            renderLevelUI();
+        }
+
+        function switchSubject(subjectKey) {
+            activeSubject = subjectKey;
+            
+            document.querySelectorAll('#subjectTabs button').forEach(btn => {
+                if (btn.getAttribute('data-subject') === subjectKey) {
+                    btn.className = "tab-link px-4 py-2 font-semibold text-blue-600 border-b-2 border-blue-600";
+                } else {
+                    btn.className = "tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition";
+                }
+            });
+
+            renderLevelUI();
+        }
+
+        function renderLevelUI() {
+            const isEval = EVALUATION_LEVELS.includes(currentLevel);
+            const isSpecial = currentLevel >= 21 && currentLevel <= 25;
+            const isFinal = currentLevel === 26;
+
+            let targetCount = 25;
+            if (isFinal) targetCount = 125;
+            else if (isEval || isSpecial) targetCount = 50;
+
+            const currentTopic = SYLLABUS[activeSubject][currentLevel];
+            
+            const banner = document.getElementById('levelBanner');
+            const title = document.getElementById('levelTitle');
+            const desc = document.getElementById('levelDesc');
+            const infoBox = document.getElementById('materialInfo');
+
+            if (isFinal) {
+                banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-red-700 to-rose-900";
+                title.innerText = `Level 26 (Ujian Akhir Master)`;
+                desc.innerText = `Ujian Akhir: ${targetCount} Soal Merangkum Level 1 s.d 25`;
+            } else if (isSpecial) {
+                banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-amber-600 to-orange-800";
+                title.innerText = `Level ${currentLevel} (Pengayaan Spesial)`;
+                desc.innerText = `Materi Tambahan: ${targetCount} Soal per Mapel`;
+            } else if (isEval) {
+                const startL = currentLevel - 4;
+                banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-purple-700 to-indigo-900";
+                title.innerText = `Level ${currentLevel} (Ujian Evaluasi Pemerataan)`;
+                desc.innerText = `Ulangan Terbagi Rata: 50 Soal dari Level ${startL} s.d ${currentLevel - 1}`;
+            } else {
+                banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-blue-700 to-blue-900";
+                title.innerText = `Level ${currentLevel}`;
+                desc.innerText = `Latihan Reguler: ${targetCount} Soal per Mapel`;
+            }
+
+            infoBox.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-blue-800 uppercase">Materi ${activeSubject.toUpperCase()} (Level ${currentLevel}):</span>
+                    <span class="font-semibold text-blue-900 bg-white px-3 py-1 rounded border border-blue-200">${currentTopic}</span>
+                </div>
+            `;
+
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const isEval = EVALUATION_LEVELS.includes(currentLevel);
+            const isSpecial = currentLevel >= 21 && currentLevel <= 25;
+            const isFinal = currentLevel === 26;
+
+            let questionCount = 25;
+            if (isFinal) questionCount = 125;
+            else if (isEval || isSpecial) questionCount = 50;
+
+            const questions = getQuestionList(activeSubject, questionCount, currentLevel);
+            const savedProgress = getStorageProgress();
+            
+            const area = document.getElementById('contentArea');
+            
+            let html = `
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 ${isFinal ? 'border-red-600' : (isSpecial ? 'border-amber-600' : (isEval ? 'border-purple-600' : 'border-blue-600'))}">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b pb-4 gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Soal ${activeSubject.toUpperCase()} - Level ${currentLevel}</h3>
+                            <p class="text-xs text-gray-500">${isFinal ? `Ujian Akhir Master (${questionCount} Soal)` : (isEval ? `Ujian Pengulangan Pemerataan (${questionCount} Soal)` : `Materi: ${SYLLABUS[activeSubject][currentLevel]}`)}</p>
+                        </div>
+                        <span class="text-xs bg-green-100 text-green-800 font-semibold px-3 py-1 rounded-full border border-green-300">
+                            Auto-Saved LocalStorage
+                        </span>
+                    </div>
+                    <div class="space-y-6">
+            `;
+
+            questions.forEach((q) => {
+                const savedAns = savedProgress[q.id];
+                const isAnswered = savedAns !== undefined;
+
+                html += `
+                    <div class="p-4 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-50 transition">
+                        <p class="font-semibold text-gray-800 mb-3 leading-relaxed whitespace-pre-line">${q.q}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            ${q.options.map((opt, optIdx) => {
+                                let btnStyle = "bg-white border-gray-300 hover:border-blue-500 hover:bg-blue-50/50";
+                                if (isAnswered) {
+                                    if (optIdx === q.correct) {
+                                        btnStyle = "bg-green-100 border-green-600 font-bold text-green-900";
+                                    } else if (optIdx === savedAns) {
+                                        btnStyle = "bg-red-100 border-red-500 text-red-900";
+                                    }
+                                }
+
+                                return `
+                                    <button 
+                                        onclick="handleAnswer('${q.id}', ${optIdx})" 
+                                        ${isAnswered ? 'disabled' : ''}
+                                        class="text-left p-3 border rounded-lg transition text-sm ${btnStyle}">
+                                        <span class="font-bold mr-1">${String.fromCharCode(65 + optIdx)}.</span> ${opt}
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                        <div id="msg-${q.id}" class="mt-3 text-xs font-bold">
+                            ${isAnswered 
+                                ? (savedAns === q.correct 
+                                    ? '<span class="text-green-600 bg-green-50 px-2 py-1 rounded border border-green-200">✓ Jawaban Anda Benar!</span>' 
+                                    : `<span class="text-red-600 bg-red-50 px-2 py-1 rounded border border-red-200">✕ Jawaban Salah. Kunci Jawaban: ${String.fromCharCode(65 + q.correct)}</span>`)
+                                : ''}
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div></div>`;
+            area.innerHTML = html;
+
+            // Trigger KaTeX untuk render simbol matematika
+            renderMathInElement(document.getElementById("contentArea"), {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        }
+
+        function handleAnswer(questionId, selectedIdx) {
+            saveAnswer(questionId, selectedIdx);
+            renderQuestions();
+        }
+
+        window.onload = () => {
+            initLevelDropdown();
+            renderLevelUI();
+        };
+    </script>
+</body>
+</html>
