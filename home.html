@@ -40,7 +40,7 @@
                 <p id="levelDesc" class="text-xs md:text-sm opacity-90">Target: 25 Soal per Mapel</p>
             </div>
             <div class="text-right">
-                <span id="topicBadge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">45 Menit</span>
+                <span id="topicBadge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">🔥</span>
             </div>
         </div>
 
@@ -55,14 +55,17 @@
 
         <!-- Info Materi Aktif -->
         <div id="materialInfo" class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6 rounded-r-lg text-blue-900 text-sm">
-            <!-- Disikan dinamis -->
+            <!-- Diisikan dinamis -->
+        </div>
+
+        <!-- Panel Ringkasan Skor Nilai -->
+        <div id="scorePanel" class="bg-white border border-gray-200 rounded-xl shadow-sm p-4 mb-6">
+            <!-- Diisikan dinamis oleh renderQuestions() -->
         </div>
 
         <!-- Area Konten Soal -->
         <div id="contentArea"></div>
     </main>
-
-
 
     <!-- INISIALISASI BANK SOAL UTAMA -->
     <script>
@@ -75,7 +78,7 @@
         };
     </script>
 
-    <!-- PANGGULAN SELURUH PART BANK SOAL -->
+    <!-- PANGGILAN SELURUH PART BANK SOAL -->
     <script src="bank_soal_part1.js"></script>
     <script src="bank_soal_part2.js"></script>
     <script src="bank_soal_part3.js"></script>
@@ -122,39 +125,39 @@
             },
             fisika: {
                 1: "Besaran, Satuan, Dimensi & Vektor", 2: "Kinematika: GLB, GLBB & Gerak Parabola", 3: "Dinamika: Hukum Newton & Gaya Gesek", 4: "Usaha, Energi & Daya Efisiensi",
-                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                5: "EVALUASI (Pengulangan lvl 1-4)",
                 6: "Impuls, Momentum & Tumbukan", 7: "Dinamika Rotasi & Momen Inersia", 8: "Keseimbangan Benda Tegar & Momen Gaya (Torsi)", 9: "Fluida Statis: Tekanan Hidrostatis & Archimedes",
-                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                10: "EVALUASI (Pengulangan lvl 6-9)",
                 11: "Fluida Dinamis: Kontinuitas & Asas Bernoulli", 12: "Suhu, Kalor & Azas Black", 13: "Termodinamika & Mesin Carnot", 14: "Gelombang Bunyi & Efek Doppler",
-                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                15: "EVALUASI (Pengulangan Level 11-14)",
                 16: "Optik Geometri & Cermin/Lensa", 17: "Listrik Searah (DC) & Hukum Kirchhoff", 18: "Listrik Statis & Medan Listrik", 19: "Induksi Elektromagnetik & Transformator",
-                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                20: "EVALUASI (Pengulangan lvl 16-19)",
                 21: "Listrik Arus Bolak-Balik (AC) & Rangkaian RLC", 22: "Impedansi, Reaktansi & Resonansi RLC", 23: "Teori Relativitas Khusus & Efek Fotolistrik", 24: "Fisika Inti, Radioaktivitas & Waktu Paruh", 25: "Optik Fisis: Interferensi & Difraksi Celah",
-                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+                26: "MASTER FINAL EXAM - lvl 1-25"
             },
             indo: {
                 1: "Ejaan PUEBI/EYD, Kata Baku & Tanda Baca", 2: "Kalimat Efektif & Struktur Kalimat Ambigu", 3: "Ide Pokok, Kalimat Utama & Paragraf Deduktif", 4: "Teks LHO: Verba Relasional & Spesifikasi",
-                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                5: "EVALUASI (Pengulangan lvl 1-4)",
                 6: "Teks Eksplanasi: Kausalitas & Kronologis", 7: "Teks Prosedur: Konjungsi Temporal & Imperatif", 8: "Teks Eksposisi: Analisis Fakta & Opini", 9: "Teks Editorial: Argumentasi & Keberpihakan",
-                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                10: "EVALUASI (Pengulangan lvl 6-9)",
                 11: "Teks Argumentasi: Penalaran Induktif/Deduktif", 12: "Teks Negosiasi: Pengajuan & Penawaran", 13: "Makna Lexikal, Gramatikal & Kiasan", 14: "Konjungsi Intrakalimat & Antarkalimat",
-                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                15: "EVALUASI (Pengulangan lvl 11-14)",
                 16: "Analisis Kritis Teks & Paragraf Rumpang", 17: "Rangkuman, Simpulan & Invensi Teks", 18: "Karya Tulis Ilmiah & Daftar Pustaka APA", 19: "Literasi Kompleks: Diagram & Infografis",
-                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                20: "EVALUASI (Pengulangan lvl 16-19)",
                 21: "Penyuntingan Ejaan, Kata Baku & Tanda Baca (Editing)", 22: "Analisis Struktur & Keefektifan Kalimat Kompleks", 23: "Analisis Kritik, Resensi & Kualitas Karya", 24: "Literasi Informasi Kompleks: Infografis & Tabel Silang", 25: "Invensi Gagasan & Sintesis Multi-Teks",
-                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+                26: "MASTER FINAL EXAM - lvl 1-25"
             },
             inggris: {
                 1: "Tenses: Present Perfect & Past Simple", 2: "Modal Auxiliaries & Necessity (Must/Should)", 3: "Passive Voice in Technical Context", 4: "Relative Clauses (Who, Which, Whose)",
-                5: "ULANGAN EVALUASI (Pengulangan Level 1 - 4)",
+                5: "EVALUASI (Pengulangan lvl 1-4)",
                 6: "Conditional Sentences Type 2 & 3", 7: "Causative Verbs (Have, Get, Make)", 8: "Direct & Indirect Speech Reporting", 9: "Comparison: As...As, Comparative, Superlative",
-                10: "ULANGAN EVALUASI (Pengulangan Level 6 - 9)",
+                10: "EVALUASI (Pengulangan lvl 6-9)",
                 11: "Reading: Main Idea & Paragraph Intent", 12: "Reading: Specific Information & Scan", 13: "Reading: Synonym & Antonym in Context", 14: "Cause & Effect Connectors (Due to, Owing to)",
-                15: "ULANGAN EVALUASI (Pengulangan Level 11 - 14)",
+                15: "EVALUASI (Pengulangan lvl 11-14)",
                 16: "Procedure Text: Technical Manuals Analysis", 17: "Analytical Exposition Text Analysis", 18: "Cohesion & Coherence in Writing", 19: "Cloze Test: Vocabulary Completion",
-                20: "ULANGAN EVALUASI FINAL (Pengulangan Level 16 - 19)",
+                20: "EVALUASI (Pengulangan lvl 16-19)",
                 21: "Troubleshooting Chart & Diagnostic Passages", 22: "Verbs Followed by Gerund vs. Infinitive", 23: "Complex Mixed Conditionals (Type 2 & 3)", 24: "Inversion & Advanced Sentence Structures", 25: "Technical Report Writing & Cohesion Analysis",
-                26: "UJIAN AKHIR (MASTER FINAL EXAM - 125 SOAL)"
+                26: "MASTER FINAL EXAM - lvl 1-25"
             }
         };
 
@@ -166,7 +169,6 @@
             const subBank = window.MASTER_QUESTION_BANK[subjectKey] || {};
 
             if (isFinal) {
-                // Level 26: 125 Soal Ujian Akhir (Merangkum 5 Soal dari Setiap Level 1-25)
                 let questionNo = 1;
                 for (let l = 1; l <= 25; l++) {
                     const lQuestions = subBank[l] || [];
@@ -184,7 +186,6 @@
                 }
             } 
             else if (isEval) {
-                // Level 5, 10, 15, 20: Pemerataan Adil (13, 12, 13, 12 = 50 Soal dari 4 Level Sebelumnya)
                 const startPrevLevel = level - 4;
                 let questionNo = 1;
                 const distribution = [13, 12, 13, 12];
@@ -208,7 +209,6 @@
                 }
             } 
             else if (isSpecial) {
-                // Level 21-25: 50 Soal Pengayaan per Mapel
                 const specialQuestions = subBank[level] || [];
                 for (let i = 1; i <= 50; i++) {
                     if (specialQuestions[i - 1]) {
@@ -223,7 +223,6 @@
                 }
             } 
             else {
-                // Level Reguler 1-19 (25 Soal Unik)
                 const currentQuestions = subBank[level] || [];
                 for (let i = 1; i <= count; i++) {
                     if (currentQuestions[i - 1]) {
@@ -262,7 +261,7 @@
                 option.value = l;
 
                 if (isFinal) {
-                    option.textContent = `Level 26 ★ (125 Soal Ujian)`;
+                    option.textContent = `Level 26 ★ (MASTER EXAM FINAL)`;
                 } else if (isSpecial) {
                     option.textContent = `Level ${l} ◆ (50 Soal)`;
                 } else if (isEval) {
@@ -315,7 +314,7 @@
             if (isFinal) {
                 banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-red-700 to-rose-900";
                 title.innerText = `Level 26 (Ujian Akhir Master)`;
-                desc.innerText = `Ujian Akhir: ${targetCount} Soal Merangkum Level 1 s.d 25`;
+                desc.innerText = `Ujian Akhir: Pengulangan Level 1 s.d 25`;
             } else if (isSpecial) {
                 banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-amber-600 to-orange-800";
                 title.innerText = `Level ${currentLevel} (Pengayaan Spesial)`;
@@ -353,6 +352,50 @@
             const questions = getQuestionList(activeSubject, questionCount, currentLevel);
             const savedProgress = getStorageProgress();
             
+            // Perhitungan Statistik Skor
+            let correctCount = 0;
+            let wrongCount = 0;
+            let answeredCount = 0;
+
+            questions.forEach(q => {
+                const ans = savedProgress[q.id];
+                if (ans !== undefined) {
+                    answeredCount++;
+                    if (ans === q.correct) {
+                        correctCount++;
+                    } else {
+                        wrongCount++;
+                    }
+                }
+            });
+
+            const score = (correctCount / questionCount) * 100;
+            const scoreFormatted = score.toFixed(1);
+
+            // Render Panel Skor Nilai
+            const scorePanel = document.getElementById('scorePanel');
+            scorePanel.innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-gray-700">Skor Nilai:</span>
+                        <span class="text-2xl font-extrabold ${score >= 70 ? 'text-green-600' : 'text-red-600'} bg-gray-100 px-3 py-1 rounded-lg border">
+                            ${scoreFormatted} / 100
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs md:text-sm font-semibold">
+                        <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-lg border border-green-200">
+                            Benar: <strong>${correctCount}</strong>
+                        </span>
+                        <span class="bg-red-100 text-red-800 px-3 py-1.5 rounded-lg border border-red-200">
+                            Salah: <strong>${wrongCount}</strong>
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-lg border border-blue-200">
+                            Progress: <strong>${answeredCount} / ${questionCount}</strong>
+                        </span>
+                    </div>
+                </div>
+            `;
+
             const area = document.getElementById('contentArea');
             
             let html = `
