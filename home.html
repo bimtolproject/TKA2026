@@ -92,12 +92,34 @@
     <script src="bank_soal_part11.js"></script>
     <script src="bank_soal_final.js"></script>
 
+<script>
+    // 1. PROTEKSI HALAMAN: Cek apakah user sudah login
+    (function checkAuth() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn !== 'true') {
+            alert('Anda harus login terlebih dahulu!');
+            window.location.href = "login.html"; // Arahkan ke halaman login (misal: index.html atau login.html)
+        }
+    })();
+
+    // 2. LOGIKA APLIKASI TKA DARI KODE LAMA
+    const EVALUATION_LEVELS = [5, 10, 15, 20];
+    let currentLevel = parseInt(localStorage.getItem('user_level')) || 1;
+    let activeSubject = 'matumu';
+
+    // ... sisa kode JavaScript home.html tetap sama seperti sebelumnya ...
+
+    // FUNGSI LOGOUT (Bisa dipanggil jika membuat tombol Logout)
+    function logout() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('loggedInUser');
+        window.location.href = "login.html"; // Kembali ke halaman login
+    }
+</script>
+
+
     <!-- ENGINE LOGIKA APLIKASI -->
     <script>
-        const EVALUATION_LEVELS = [5, 10, 15, 20];
-        let currentLevel = parseInt(localStorage.getItem('user_level')) || 1;
-        let activeSubject = 'matumu';
-
         const SYLLABUS = {
             matumu: {
                 1: "Eksponen, Bentuk Akar & Logaritma", 2: "Persamaan & Pertidaksamaan Kuadrat", 3: "Sistem Persamaan Linear Dua & Tiga Variabel", 4: "Fungsi Kuadrat & Grafik Fungsi",
