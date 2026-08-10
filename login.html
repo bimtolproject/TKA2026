@@ -3,167 +3,698 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk - Portal TKA SMK</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Bank soal & Latihan soal TKA</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX Engine untuk Render Notasi Matematika Visual -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex items-center justify-center p-4 relative antialiased">
+<body class="bg-gray-50 min-h-screen pb-20">
 
-    <!-- Container Card -->
-    <main class="w-full max-w-md">
-        <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl shadow-slate-200/60">
-            
-            <!-- Brand / Header Logo -->
-            <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 shadow-sm mb-4">
-                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
-                </div>
-                <h1 class="text-2xl font-bold tracking-tight text-slate-900">Selamat Datang</h1>
-                <p class="text-slate-500 text-sm mt-1">Masukkan akun Anda untuk mengakses Portal Soal TKA</p>
+    <!-- MODAL / SCREEN LOGIN -->
+    <div id="loginScreen" class="fixed inset-0 bg-blue-950 bg-opacity-95 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-md border border-gray-100">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-blue-900 italic">BANK SOAL TKA SMK</h2>
+                <p class="text-gray-500 text-xs mt-1">Silakan login untuk mengakses bank soal</p>
             </div>
-
-            <!-- Form -->
-            <form id="loginForm" class="space-y-5">
-                
-                <!-- Input Username -->
+            
+            <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label for="username" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                        Username
-                    </label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-regular fa-user text-sm"></i>
-                        </div>
-                        <input 
-                            type="text" 
-                            id="username" 
-                            placeholder="Masukkan Username" 
-                            required 
-                            autocomplete="off"
-                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition duration-200"
-                        >
-                    </div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Username</label>
+                    <input type="text" id="usernameInput" required placeholder="Masukkan username" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none">
                 </div>
-
-                <!-- Input Password -->
                 <div>
-                    <label for="password" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-                        Kata Sandi
-                    </label>
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-solid fa-lock text-sm"></i>
-                        </div>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            placeholder="Masukkan Password" 
-                            required
-                            class="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 transition duration-200"
-                        >
-                        <button 
-                            type="button" 
-                            id="togglePassword"
-                            class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 transition"
-                        >
-                            <i class="fa-regular fa-eye text-sm" id="eyeIcon"></i>
-                        </button>
-                    </div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Password</label>
+                    <input type="password" id="passwordInput" required placeholder="Masukkan password" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none">
                 </div>
-
-                <!-- Error Message -->
-                <div id="errorMessage" class="hidden p-3.5 bg-red-50 border border-red-200 rounded-xl text-red-600 text-xs flex items-center gap-2">
-                    <i class="fa-solid fa-circle-exclamation text-sm shrink-0"></i>
-                    <span>Username atau kata sandi salah.</span>
+                <div id="loginError" class="hidden text-red-600 text-xs font-semibold bg-red-50 p-2.5 rounded-lg border border-red-200">
+                    Username atau password salah!
                 </div>
-
-                <!-- Submit Button -->
-                <button 
-                    type="submit" 
-                    class="w-full py-3.5 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold rounded-xl shadow-md shadow-blue-600/20 active:scale-[0.99] transition duration-200 flex items-center justify-center gap-2 mt-2"
-                >
-                    <span>Masuk</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 rounded-lg text-sm transition shadow-md">
+                    Masuk
                 </button>
             </form>
+        </div>
+    </div>
 
-            <!-- Footer Card -->
-            <div class="mt-8 pt-6 border-t border-slate-100 text-center">
-                <p class="text-xs text-slate-400">
-                    &copy; 2026 bimtolproject
-                </p>
+    <!-- MAIN APP CONTAINER -->
+    <div id="appContainer" class="hidden">
+        <header class="bg-blue-900 text-white p-6 shadow-lg mb-6">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold italic">BANK SOAL TKA & PELATIHAN LSP TEKNIK SEPEDA MOTOR SMK</h1>
+                        <p class="text-blue-200 mt-1 text-xs md:text-sm">Sistem 26 Level (L1-19, Evaluasi 50 Soal, Pengayaan L21-25 & Ujian Akhir L26)</p>
+                    </div>
+                    
+                    <button onclick="toggleProfileMenu()" class="md:hidden bg-blue-800 p-2 rounded-lg border border-blue-700 text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                    <div class="flex items-center gap-3 bg-blue-800 p-3 rounded-xl border border-blue-700">
+                        <label for="levelSelect" class="font-semibold text-sm">Pilih:</label>
+                        <select id="levelSelect" onchange="changeLevel(this.value)" class="bg-white text-gray-900 font-bold px-3 py-1.5 rounded-lg text-sm border-none outline-none cursor-pointer">
+                        </select>
+                    </div>
+
+                    <button onclick="toggleProfileMenu()" class="hidden md:flex items-center gap-2 bg-blue-800 hover:bg-blue-700 p-2 pr-4 rounded-xl border border-blue-700 transition">
+                        <img id="navAvatar" src="" alt="Avatar" class="w-8 h-8 rounded-full border border-blue-400 object-cover" onerror="this.src='https://via.placeholder.com/150?text=User'">
+                        <span id="navUsername" class="font-semibold text-sm capitalize">User</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MENU PROFILE DRAWER -->
+        <div id="profileDrawer" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+            <div class="bg-white w-80 h-full p-6 shadow-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold text-gray-800">Profil Pengguna</h3>
+                        <button onclick="toggleProfileMenu()" class="text-gray-500 hover:text-gray-800 font-bold text-xl">&times;</button>
+                    </div>
+
+                    <div class="flex flex-col items-center text-center border-b pb-6 mb-6">
+                        <img id="drawerAvatar" src="" alt="Avatar" class="w-24 h-24 rounded-full border-4 border-blue-900 shadow-md mb-3 object-cover" onerror="this.src='https://via.placeholder.com/150?text=User'">
+                        <h4 id="drawerUsername" class="text-xl font-bold text-gray-900 capitalize">Username</h4>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mt-1">Online</span>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-500">Status Sesi</span>
+                            <span class="font-semibold text-green-600">Tersimpan (Auto-Login)</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-500">Level Saat Ini</span>
+                            <span id="drawerCurrentLevel" class="font-semibold text-gray-800">Level 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="handleLogout()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-lg text-sm transition">
+                    Keluar (Logout)
+                </button>
             </div>
         </div>
-    </main>
 
+        <main class="container mx-auto px-4">
+            <!-- Banner Info Level -->
+            <div id="levelBanner" class="p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md">
+                <div>
+                    <h2 id="levelTitle" class="text-xl font-bold">Level 1</h2>
+                    <p id="levelDesc" class="text-xs md:text-sm opacity-90">Target Soal per Mapel</p>
+                </div>
+                <div class="text-right">
+                    <span id="topicBadge" class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold">🔥</span>
+                </div>
+            </div>
+
+            <!-- Tab Navigasi Mapel -->
+            <nav class="flex flex-wrap border-b border-gray-200 mb-6 gap-2" id="subjectTabs">
+                <button onclick="switchSubject('matumu')" class="tab-link px-4 py-2 font-semibold text-blue-600 border-b-2 border-blue-600" data-subject="matumu">Matematika Umum</button>
+                <button onclick="switchSubject('matlan')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="matlan">Matematika Lanjut</button>
+                <button onclick="switchSubject('fisika')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="fisika">Fisika</button>
+                <button onclick="switchSubject('indo')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="indo">Bahasa Indonesia</button>
+                <button onclick="switchSubject('inggris')" class="tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition" data-subject="inggris">Bahasa Inggris</button>
+                <button onclick="switchSubject('otomotif')" class="tab-link px-4 py-2 font-medium text-amber-600 hover:text-amber-700 transition" data-subject="otomotif">LSP TSM (L1-16)</button>
+            </nav>
+
+            <!-- Info Materi Aktif -->
+            <div id="materialInfo" class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6 rounded-r-lg text-blue-900 text-sm">
+            </div>
+
+            <!-- Panel Ringkasan Skor Nilai -->
+            <div id="scorePanel" class="bg-white border border-gray-200 rounded-xl shadow-sm p-4 mb-6">
+            </div>
+
+            <!-- Area Konten Soal -->
+            <div id="contentArea"></div>
+        </main>
+    </div>
+
+    <!-- INISIALISASI BANK SOAL UTAMA -->
     <script>
-        // 1. AUTO-LOGIN CHECK
-        document.addEventListener('DOMContentLoaded', () => {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn === 'true') {
-                window.location.href = "home.html";
+        window.MASTER_QUESTION_BANK = {
+            matumu: {},
+            matlan: {},
+            fisika: {},
+            indo: {},
+            inggris: {},
+            otomotif: {}
+        };
+    </script>
+
+    <!-- PANGGILAN SELURUH PART BANK SOAL -->
+    <script src="bank_soal_part1.js"></script>
+    <script src="bank_soal_part2.js"></script>
+    <script src="bank_soal_part3.js"></script>
+    <script src="bank_soal_part4.js"></script>
+    <script src="bank_soal_part5.js"></script>
+    <script src="bank_soal_part6.js"></script>
+    <script src="bank_soal_part7.js"></script>
+    <script src="bank_soal_part8.js"></script>
+    <script src="bank_soal_part9.js"></script>
+    <script src="bank_soal_part10.js"></script>
+    <script src="bank_soal_part11.js"></script>
+    <script src="bank_soal_final.js"></script>
+    <script src="otomotif.js"></script>
+    <script src="otomotif2.js"></script>
+    <script src="otomotif3.js"></script>
+
+    <!-- ENGINE LOGIKA APLIKASI -->
+    <script>
+        // DATA AUTHENTICATION USER
+const USER_DATA = {
+    "q": "q",
+    "haikal": "haikal2233",
+    "bima": "bima9900",
+    "samuel": "samuel7722",
+    "firman": "ujang8811",
+    "dika": "dika1122",
+    "rizal": "rizal7888",
+    "narno": "narno0022",
+    "latif": "latif5532",
+    "adit": "adit7788",
+    "hefan": "hefan6622",
+    "hudan": "hudan4433"
+};
+
+const EVALUATION_LEVELS = [5, 10, 15, 20];
+let currentLevel = parseInt(localStorage.getItem('user_level')) || 1;
+let activeSubject = 'matumu';
+
+const SYLLABUS = {
+    matumu: {
+        1: "Eksponen, Bentuk Akar & Logaritma", 2: "Persamaan & Pertidaksamaan Kuadrat", 3: "Sistem Persamaan Linear Dua & Tiga Variabel", 4: "Fungsi Kuadrat & Grafik Fungsi",
+        5: "EVALUASI (Pengulangan lvl 1-4)",
+        6: "Matriks: Operasi, Determinan & Invers", 7: "Barisan & Deret Aritmatika-Geometri", 8: "Trigonometri Dasar & Sudut Istimewa", 9: "Geometri Dimensi Tiga (Jarak & Sudut)",
+        10: "EVALUASI (Pengulangan lvl 6-9)",
+        11: "Statistika: Ukuran Pemusatan & Penyebaran", 12: "Kaidah Pencacahan: Permutasi & Kombinasi", 13: "Peluang Kejadian Tunggal & Majemuk", 14: "Limit Fungsi Aljabar & Tak Hingga",
+        15: "EVALUASI (Pengulangan lvl 11-14)",
+        16: "Turunan Fungsi Aljabar Dasar", 17: "Aplikasi Turunan: Maksimum, Minimum & Garis Singgung", 18: "Integral Tak Tentu & Tentu Aljabar", 19: "Aplikasi Integral Luas Daerah",
+        20: "EVALUASI (Pengulangan lvl 16-19)",
+        21: "Persamaan Trigonometri & Grafik Fasa", 22: "Persamaan Kuadrat Baru & Sifat Akar", 23: "Statistika Lanjut: Desil & Persentil Kelompok", 24: "Peluang Bersyarat & Kombinatorika Kompleks", 25: "Kalkulus Lanjut: Limit L'Hopital & Luas Dua Kurva",
+        26: "MASTER FINAL EXAM - lvl 1-25)"
+    },
+    matlan: {
+        1: "Polinomial: Pembagian & Teorema Sisa", 2: "Matriks Lanjut Ordo 3x3 & Invers", 3: "Vektor Dimensi Tiga & Proyeksi", 4: "Fungsi Komposisi & Fungsi Invers Kompleks",
+        5: "EVALUASI (Pengulangan lvl 1-4)",
+        6: "Trigonometri Lanjut & Identitas Jumlah Sudut", 7: "Limit Fungsi Trigonometri", 8: "Turunan Fungsi Trigonometri", 9: "Aplikasi Turunan Trigonometri & Kurva",
+        10: "EVALUASI (Pengulangan lvl 6-9)",
+        11: "Integral Substitusi & Parsial", 12: "Aplikasi Integral Volume Benda Putar", 13: "Persamaan Lingkaran & Garis Singgung", 14: "Irisan Kerucut: Elips & Parabola",
+        15: "EVALUASI (Pengulangan lvl 11-14)",
+        16: "Matriks Transformasi Geometri", 17: "Barisan & Deret Tak Hingga Lanjut", 18: "Logika Matematika & Penarikan Kesimpulan", 19: "Bilangan Kompleks & Bentuk Polar",
+        20: "EVALUASI (Pengulangan lvl 16-19)",
+        21: "Komposisi Transformasi Geometri Matriks", 22: "Persamaan Lingkaran & Garis Singgung Luas/Dalam", 23: "Asimtot & Garis Singgung Parabola/Elips", 24: "Integral Parsial Tanzalin & Volume Dua Kurva", 25: "Operasi & Bentuk Polar/Euler Bilangan Kompleks",
+        26: "MASTER FINAL EXAM - lvl 1-25)"
+    },
+    fisika: {
+        1: "Besaran, Satuan, Dimensi & Vektor", 2: "Kinematika: GLB, GLBB & Gerak Parabola", 3: "Dinamika: Hukum Newton & Gaya Gesek", 4: "Usaha, Energi & Daya Efisiensi",
+        5: "EVALUASI (Pengulangan lvl 1-4)",
+        6: "Impuls, Momentum & Tumbukan", 7: "Dinamika Rotasi & Momen Inersia", 8: "Keseimbangan Benda Tegar & Momen Gaya (Torsi)", 9: "Fluida Statis: Tekanan Hidrostatis & Archimedes",
+        10: "EVALUASI (Pengulangan lvl 6-9)",
+        11: "Fluida Dinamis: Kontinuitas & Asas Bernoulli", 12: "Suhu, Kalor & Azas Black", 13: "Termodinamika & Mesin Carnot", 14: "Gelombang Bunyi & Efek Doppler",
+        15: "EVALUASI (Pengulangan Level 11-14)",
+        16: "Optik Geometri & Cermin/Lensa", 17: "Listrik Searah (DC) & Hukum Kirchhoff", 18: "Listrik Statis & Medan Listrik", 19: "Induksi Elektromagnetik & Transformator",
+        20: "EVALUASI (Pengulangan lvl 16-19)",
+        21: "Listrik Arus Bolak-Balik (AC) & Rangkaian RLC", 22: "Impedansi, Reaktansi & Resonansi RLC", 23: "Teori Relativitas Khusus & Efek Fotolistrik", 24: "Fisika Inti, Radioaktivitas & Waktu Paruh", 25: "Optik Fisis: Interferensi & Difraksi Celah",
+        26: "MASTER FINAL EXAM - lvl 1-25"
+    },
+    indo: {
+        1: "Ejaan PUEBI/EYD, Kata Baku & Tanda Baca", 2: "Kalimat Efektif & Struktur Kalimat Ambigu", 3: "Ide Pokok, Kalimat Utama & Paragraf Deduktif", 4: "Teks LHO: Verba Relasional & Spesifikasi",
+        5: "EVALUASI (Pengulangan lvl 1-4)",
+        6: "Teks Eksplanasi: Kausalitas & Kronologis", 7: "Teks Prosedur: Konjungsi Temporal & Imperatif", 8: "Teks Eksposisi: Analisis Fakta & Opini", 9: "Teks Editorial: Argumentasi & Keberpihakan",
+        10: "EVALUASI (Pengulangan lvl 6-9)",
+        11: "Teks Argumentasi: Penalaran Induktif/Deduktif", 12: "Teks Negosiasi: Pengajuan & Penawaran", 13: "Makna Lexikal, Gramatikal & Kiasan", 14: "Konjungsi Intrakalimat & Antarkalimat",
+        15: "EVALUASI (Pengulangan lvl 11-14)",
+        16: "Analisis Kritis Teks & Paragraf Rumpang", 17: "Rangkuman, Simpulan & Invensi Teks", 18: "Karya Tulis Ilmiah & Daftar Pustaka APA", 19: "Literasi Kompleks: Diagram & Infografis",
+        20: "EVALUASI (Pengulangan lvl 16-19)",
+        21: "Penyuntingan Ejaan, Kata Baku & Tanda Baca (Editing)", 22: "Analisis Struktur & Keefektifan Kalimat Kompleks", 23: "Analisis Kritik, Resensi & Kualitas Karya", 24: "Literasi Informasi Kompleks: Infografis & Tabel Silang", 25: "Invensi Gagasan & Sintesis Multi-Teks",
+        26: "MASTER FINAL EXAM - lvl 1-25"
+    },
+    inggris: {
+        1: "Tenses: Present Perfect & Past Simple", 2: "Modal Auxiliaries & Necessity (Must/Should)", 3: "Passive Voice in Technical Context", 4: "Relative Clauses (Who, Which, Whose)",
+        5: "EVALUASI (Pengulangan lvl 1-4)",
+        6: "Conditional Sentences Type 2 & 3", 7: "Causative Verbs (Have, Get, Make)", 8: "Direct & Indirect Speech Reporting", 9: "Comparison: As...As, Comparative, Superlative",
+        10: "EVALUASI (Pengulangan lvl 6-9)",
+        11: "Reading: Main Idea & Paragraph Intent", 12: "Reading: Specific Information & Scan", 13: "Reading: Synonym & Antonym in Context", 14: "Cause & Effect Connectors (Due to, Owing to)",
+        15: "EVALUASI (Pengulangan lvl 11-14)",
+        16: "Procedure Text: Technical Manuals Analysis", 17: "Analytical Exposition Text Analysis", 18: "Cohesion & Coherence in Writing", 19: "Cloze Test: Vocabulary Completion",
+        20: "EVALUASI (Pengulangan lvl 16-19)",
+        21: "Troubleshooting Chart & Diagnostic Passages", 22: "Verbs Followed by Gerund vs. Infinitive", 23: "Complex Mixed Conditionals (Type 2 & 3)", 24: "Inversion & Advanced Sentence Structures", 25: "Technical Report Writing & Cohesion Analysis",
+        26: "MASTER FINAL EXAM - lvl 1-25"
+    },
+    otomotif: {
+        1: "PMSM: Dasar Mesin Sepeda Motor (Sistem 2-Tak & 4-Tak)",
+        2: "PMSM: Komponen Blok Silinder, Piston, Ring Piston & Kepala Silinder",
+        3: "PMSM: Mekanisme Katup (OHV, SOHC, DOHC) & Setel Celah Katup",
+        4: "Basic I: Vernier Caliper, Micrometer & Cylinder Bore Gauge",
+        5: "ULANGAN EVALUASI OTOMOTIF (Pengulangan Level 1 - 4)",
+        6: "PMSM: Sistem Pelumasan & Pendinginan Mesin Sepeda Motor",
+        7: "PMSM & PKSM: Sistem Bahan Bakar Karburator & Injeksi (PGM-FI/EFI)",
+        8: "PSSM: Sistem Rem, Suspensi, Kemudi, Roda & Ban",
+        9: "PKSM: Pengapian (CDI/ECU), Pengisian, Starter & Penerangan",
+        10: "Basic II: Dial Gauge, Feeler Gauge, Hydrometer & Scanner OBD-II",
+        11: "Sertifikasi LSP: Persiapan K3, Servis Karburator, Klep, Kabel Gas & Filter Udara",
+        12: "Sertifikasi LSP: Sistem Kopling (Manual/Otomatis), Oli Mesin/Transmisi & Pelumasan",
+        13: "Sertifikasi LSP: Sistem CVT, Sistem Pendingin & Sistem Injeksi (PGM-FI)",
+        14: "Sertifikasi LSP: Diagnostic Scanner (OBD-II), Baterai, Busi & Instrumen Kelistrikan",
+        15: "Sertifikasi LSP: Sasis Kompleks - Rantai, Keolengan Roda, Rem, Kemudi & Suspensi",
+        16: "Sertifikasi LSP: FR.IA.05A Mekanik Junior (75 Soal Pilihan Ganda)"
+    }
+};
+
+// LOGIN & AUTHENTICATION (LOCALSTORAGE PERMANEN)
+function handleLogin(e) {
+    e.preventDefault();
+    const userVal = document.getElementById('usernameInput').value.trim().toLowerCase();
+    const passVal = document.getElementById('passwordInput').value.trim();
+    const errorMsg = document.getElementById('loginError');
+
+    if (USER_DATA[userVal] && USER_DATA[userVal] === passVal) {
+        // Simpan username di LocalStorage
+        localStorage.setItem('auth_user', userVal);
+        errorMsg.classList.add('hidden');
+        
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('passwordInput').value = '';
+
+        checkAuth();
+    } else {
+        errorMsg.classList.remove('hidden');
+    }
+}
+
+function handleLogout() {
+    // Hapus data login dari LocalStorage
+    localStorage.removeItem('auth_user');
+    
+    const drawer = document.getElementById('profileDrawer');
+    if (!drawer.classList.contains('hidden')) {
+        toggleProfileMenu();
+    }
+    checkAuth();
+}
+
+function checkAuth() {
+    const activeUser = localStorage.getItem('auth_user');
+    const loginScreen = document.getElementById('loginScreen');
+    const appContainer = document.getElementById('appContainer');
+
+    // Cek apakah data user ada di localStorage dan valid
+    if (activeUser && USER_DATA[activeUser]) {
+        // Tampilkan aplikasi utama, sembunyikan layar login
+        loginScreen.classList.add('hidden');
+        appContainer.classList.remove('hidden');
+        
+        const avatarUrl = `ava${activeUser}.png`;
+        
+        document.getElementById('navUsername').innerText = activeUser;
+        document.getElementById('navAvatar').src = avatarUrl;
+        
+        document.getElementById('drawerUsername').innerText = activeUser;
+        document.getElementById('drawerAvatar').src = avatarUrl;
+        document.getElementById('drawerCurrentLevel').innerText = `Level ${currentLevel}`;
+
+        initLevelDropdown();
+        renderLevelUI();
+    } else {
+        // Jika tidak ada session / belum login, tampilkan modal login
+        loginScreen.classList.remove('hidden');
+        appContainer.classList.add('hidden');
+    }
+}
+
+function toggleProfileMenu() {
+    const drawer = document.getElementById('profileDrawer');
+    drawer.classList.toggle('hidden');
+}
+
+// LOGIKA PENARIKAN SOAL AMAN (OTOMOTIF L16 = 75 SOAL)
+function getQuestionList(subjectKey, count, level) {
+    const list = [];
+    const isEval = EVALUATION_LEVELS.includes(level);
+    const isSpecial = level >= 21 && level <= 25;
+    const isFinal = level === 26;
+    const subBank = window.MASTER_QUESTION_BANK[subjectKey] || {};
+
+    // KHUSUS OTOMOTIF LEVEL 16 (75 SOAL)
+    if (subjectKey === 'otomotif' && level === 16) {
+        const otomotif16Questions = subBank[16] || [];
+        const limit = otomotif16Questions.length;
+        
+        for (let i = 0; i < limit; i++) {
+            if (otomotif16Questions[i]) {
+                list.push({
+                    id: `L16-otomotif-${i+1}`,
+                    q: `${i+1}. ${otomotif16Questions[i].q}`,
+                    options: otomotif16Questions[i].options,
+                    correct: otomotif16Questions[i].correct
+                });
             }
-        });
+        }
+        return list;
+    }
 
-        // Toggle visibility password
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        const eyeIcon = document.getElementById('eyeIcon');
+    if (isFinal) {
+        let questionNo = 1;
+        for (let l = 1; l <= 25; l++) {
+            const lQuestions = subBank[l] || [];
+            for (let i = 0; i < lQuestions.length && i < 5; i++) {
+                if (lQuestions[i]) {
+                    list.push({
+                        id: `L26-${subjectKey}-Q${questionNo}`,
+                        q: `${questionNo}. [SOAL MASTER UJIAN AKHIR - DARI LEVEL ${l}] ${lQuestions[i].q}`,
+                        options: lQuestions[i].options,
+                        correct: lQuestions[i].correct
+                    });
+                    questionNo++;
+                }
+            }
+        }
+    } 
+    else if (isEval) {
+        const startPrevLevel = level - 4;
+        let questionNo = 1;
+        const distribution = [13, 12, 13, 12];
 
-        togglePassword.addEventListener('click', () => {
-            const isPassword = passwordInput.getAttribute('type') === 'password';
-            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-            eyeIcon.classList.toggle('fa-eye', !isPassword);
-            eyeIcon.classList.toggle('fa-eye-slash', isPassword);
-        });
+        for (let idx = 0; idx < 4; idx++) {
+            const targetL = startPrevLevel + idx;
+            const quota = distribution[idx];
+            const lQuestions = subBank[targetL] || [];
 
-        // 2. LOGIC LOGIN
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            for (let i = 0; i < lQuestions.length && i < quota; i++) {
+                if (lQuestions[i]) {
+                    list.push({
+                        id: `L${level}-${subjectKey}-EVAL-from-L${targetL}-${i+1}`,
+                        q: `${questionNo}. [EVALUASI LEVEL ${targetL}] ${lQuestions[i].q}`,
+                        options: lQuestions[i].options,
+                        correct: lQuestions[i].correct
+                    });
+                    questionNo++;
+                }
+            }
+        }
+    } 
+    else {
+        // REGULER & PENGAYAAN LEVEL (L1-19, L21-25)
+        const currentQuestions = subBank[level] || [];
+        const maxAvailable = currentQuestions.length;
+        const fetchLimit = count ? Math.min(count, maxAvailable) : maxAvailable;
 
-            const usernameInput = document.getElementById('username').value.trim();
-            const passwordInput = document.getElementById('password').value.trim();
-            const errorMessage = document.getElementById('errorMessage');
+        for (let i = 0; i < fetchLimit; i++) {
+            if (currentQuestions[i]) {
+                const qData = currentQuestions[i];
+                list.push({
+                    id: `L${level}-${subjectKey}-${i+1}`,
+                    q: `${i+1}. ${qData.q}`,
+                    options: qData.options,
+                    correct: qData.correct
+                });
+            }
+        }
+    }
+    return list;
+}
 
-            // Data Pengguna
-            const users = {
-                "haikal": "haikal2233",
-                "bima": "bima9900",
-                "samuel": "samuel7722",
-                "firman": "ujang7890",
-                "dika": "dika1122",
-                "rizal": "rizal7888",
-                "narno": "narno0022",
-                "latif": "latif5532",
-                "adit": "adit7788",
-                "hefan": "hefan6622",
-                "hudan": "hudan4433"
-            };
+// MANAGEMENT PROGRESS JAWABAN (LOCALSTORAGE)
+function getStorageProgress() {
+    return JSON.parse(localStorage.getItem('tka_final_26_progress')) || {};
+}
 
-            // Validasi Credential
-            if (users[usernameInput] && users[usernameInput] === passwordInput) {
-                errorMessage.classList.add('hidden');
+function saveAnswer(questionId, selectedIdx) {
+    const progress = getStorageProgress();
+    progress[questionId] = selectedIdx;
+    localStorage.setItem('tka_final_26_progress', JSON.stringify(progress));
+}
 
-                // Simpan Sesi Login
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('loggedInUser', usernameInput);
+function initLevelDropdown() {
+    const select = document.getElementById('levelSelect');
+    select.innerHTML = '';
 
-                // Redirect
-                window.location.href = "home.html"; 
+    const maxLevel = activeSubject === 'otomotif' ? 16 : 26;
+    
+    if (currentLevel > maxLevel) {
+        currentLevel = maxLevel;
+        localStorage.setItem('user_level', currentLevel);
+    }
+
+    for (let l = 1; l <= maxLevel; l++) {
+        const isEval = EVALUATION_LEVELS.includes(l);
+        const isSpecial = l >= 21 && l <= 25;
+        const isFinal = l === 26;
+
+        const option = document.createElement('option');
+        option.value = l;
+
+        if (activeSubject === 'otomotif' && l === 16) {
+            option.textContent = `Level 16 ★ (75 Soal Ujian LSP)`;
+        } else if (isFinal) {
+            option.textContent = `Level 26 ★ (MASTER EXPERT)`;
+        } else if (isSpecial) {
+            option.textContent = `Level ${l} ◆ (50 Soal)`;
+        } else if (isEval) {
+            option.textContent = `Level ${l} ★ (50 Soal Evaluasi)`;
+        } else {
+            option.textContent = `Level ${l} (25 Soal)`;
+        }
+
+        if (l === currentLevel) option.selected = true;
+        select.appendChild(option);
+    }
+}
+
+function changeLevel(level) {
+    currentLevel = parseInt(level);
+    localStorage.setItem('user_level', currentLevel);
+    document.getElementById('drawerCurrentLevel').innerText = `Level ${currentLevel}`;
+    renderLevelUI();
+}
+
+function switchSubject(subjectKey) {
+    activeSubject = subjectKey;
+    
+    document.querySelectorAll('#subjectTabs button').forEach(btn => {
+        if (btn.getAttribute('data-subject') === subjectKey) {
+            btn.className = "tab-link px-4 py-2 font-semibold text-blue-600 border-b-2 border-blue-600";
+        } else {
+            btn.className = "tab-link px-4 py-2 font-medium text-gray-500 hover:text-blue-600 transition";
+        }
+    });
+
+    initLevelDropdown();
+    renderLevelUI();
+}
+
+// RENDER HEADER BANNER
+function renderLevelUI() {
+    const isEval = EVALUATION_LEVELS.includes(currentLevel);
+    const isSpecial = currentLevel >= 21 && currentLevel <= 25;
+    const isFinal = currentLevel === 26;
+
+    let targetCount = 25;
+    if (activeSubject === 'otomotif' && currentLevel === 16) targetCount = 75;
+    else if (isFinal) targetCount = 125;
+    else if (isEval || isSpecial) targetCount = 50;
+
+    const currentTopic = (SYLLABUS[activeSubject] && SYLLABUS[activeSubject][currentLevel]) ? SYLLABUS[activeSubject][currentLevel] : "Materi Umum";
+    
+    const banner = document.getElementById('levelBanner');
+    const title = document.getElementById('levelTitle');
+    const desc = document.getElementById('levelDesc');
+    const infoBox = document.getElementById('materialInfo');
+
+    if (activeSubject === 'otomotif' && currentLevel === 16) {
+        banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-amber-700 to-red-900";
+        title.innerText = `Level 16 (Ujian LSP-Pro Indo)`;
+        desc.innerText = `Naskah Ujian FR.IA.05A: ${targetCount} Soal Pilihan Ganda`;
+    } else if (isFinal) {
+        banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-red-700 to-rose-900";
+        title.innerText = `Level 26 (Ujian Akhir Master)`;
+        desc.innerText = `Ujian Akhir: Pengulangan Level 1 s.d 25`;
+    } else if (isSpecial) {
+        banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-amber-600 to-orange-800";
+        title.innerText = `Level ${currentLevel} (Pengayaan Spesial)`;
+        desc.innerText = `Materi Tambahan: ${targetCount} Soal per Mapel`;
+    } else if (isEval) {
+        const startL = currentLevel - 4;
+        banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-purple-700 to-indigo-900";
+        title.innerText = `Level ${currentLevel} (Evaluasi)`;
+        desc.innerText = `Evaluasi: 50 Soal dari Level ${startL} s.d ${currentLevel - 1}`;
+    } else {
+        banner.className = "p-4 rounded-xl mb-6 flex justify-between items-center text-white shadow-md bg-gradient-to-r from-blue-700 to-blue-900";
+        title.innerText = `Level ${currentLevel}`;
+        desc.innerText = `Latihan Reguler: ${targetCount} Soal`;
+    }
+
+    infoBox.innerHTML = `
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-blue-800 uppercase">Materi ${activeSubject.toUpperCase()} (Level ${currentLevel}):</span>
+            <span class="font-semibold text-blue-900 bg-white px-3 py-1 rounded border border-blue-200">${currentTopic}</span>
+        </div>
+    `;
+
+    renderQuestions();
+}
+
+// RENDER AREA KONTEN SOAL
+function renderQuestions() {
+    const isEval = EVALUATION_LEVELS.includes(currentLevel);
+    const isSpecial = currentLevel >= 21 && currentLevel <= 25;
+    const isFinal = currentLevel === 26;
+
+    let questionCount = 25;
+    if (activeSubject === 'otomotif' && currentLevel === 16) questionCount = 75;
+    else if (isFinal) questionCount = 125;
+    else if (isEval || isSpecial) questionCount = 50;
+
+    const questions = getQuestionList(activeSubject, questionCount, currentLevel);
+    const actualQuestionCount = questions.length;
+    const savedProgress = getStorageProgress();
+    
+    let correctCount = 0;
+    let wrongCount = 0;
+    let answeredCount = 0;
+
+    questions.forEach(q => {
+        const ans = savedProgress[q.id];
+        if (ans !== undefined) {
+            answeredCount++;
+            if (ans === q.correct) {
+                correctCount++;
             } else {
-                errorMessage.classList.remove('hidden');
+                wrongCount++;
             }
+        }
+    });
+
+    const score = actualQuestionCount > 0 ? (correctCount / actualQuestionCount) * 100 : 0;
+    const scoreFormatted = score.toFixed(1);
+
+    const scorePanel = document.getElementById('scorePanel');
+    scorePanel.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-gray-700">Skor Nilai:</span>
+                <span class="text-2xl font-extrabold ${score >= 70 ? 'text-green-600' : 'text-red-600'} bg-gray-100 px-3 py-1 rounded-lg border">
+                    ${scoreFormatted} / 100
+                </span>
+            </div>
+            <div class="flex items-center gap-4 text-xs md:text-sm font-semibold">
+                <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-lg border border-green-200">
+                    Benar: <strong>${correctCount}</strong>
+                </span>
+                <span class="bg-red-100 text-red-800 px-3 py-1.5 rounded-lg border border-red-200">
+                    Salah: <strong>${wrongCount}</strong>
+                </span>
+                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-lg border border-blue-200">
+                    Progress: <strong>${answeredCount} / ${actualQuestionCount}</strong>
+                </span>
+            </div>
+        </div>
+    `;
+
+    const area = document.getElementById('contentArea');
+
+    if (actualQuestionCount === 0) {
+        area.innerHTML = `
+            <div class="bg-white rounded-xl shadow-md p-8 text-center border">
+                <p class="text-gray-500 font-semibold">Belum ada soal yang tersedia untuk ${activeSubject.toUpperCase()} pada Level ${currentLevel}.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = `
+        <div class="bg-white rounded-xl shadow-md p-6 border-l-4 ${isFinal ? 'border-red-600' : (isSpecial ? 'border-amber-600' : (isEval ? 'border-purple-600' : 'border-blue-600'))}">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b pb-4 gap-2">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800">Soal ${activeSubject.toUpperCase()} - Level ${currentLevel}</h3>
+                    <p class="text-xs text-gray-500">${isFinal ? `Ujian Akhir Master (${actualQuestionCount} Soal)` : (isEval ? `Ujian Pengulangan Pemerataan (${actualQuestionCount} Soal)` : `Materi: ${SYLLABUS[activeSubject][currentLevel]}`)}</p>
+                </div>
+                <span class="text-xs bg-green-100 text-green-800 font-semibold px-3 py-1 rounded-full border border-green-300">
+                    Jawaban Tersimpan di LocalStorage
+                </span>
+            </div>
+            <div class="space-y-6">
+    `;
+
+    questions.forEach((q) => {
+        const savedAns = savedProgress[q.id];
+        const isAnswered = savedAns !== undefined;
+
+        html += `
+            <div class="p-4 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-50 transition">
+                <p class="font-semibold text-gray-800 mb-3 leading-relaxed whitespace-pre-line">${q.q}</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    ${q.options.map((opt, optIdx) => {
+                        let btnStyle = "bg-white border-gray-300 hover:border-blue-500 hover:bg-blue-50/50";
+                        if (isAnswered) {
+                            if (optIdx === q.correct) {
+                                btnStyle = "bg-green-100 border-green-600 font-bold text-green-900";
+                            } else if (optIdx === savedAns) {
+                                btnStyle = "bg-red-100 border-red-500 text-red-900";
+                            }
+                        }
+
+                        return `
+                            <button 
+                                onclick="handleAnswer('${q.id}', ${optIdx})" 
+                                ${isAnswered ? 'disabled' : ''}
+                                class="text-left p-3 border rounded-lg transition text-sm ${btnStyle}">
+                                <span class="font-bold mr-1">${String.fromCharCode(65 + optIdx)}.</span> ${opt}
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+                <div id="msg-${q.id}" class="mt-3 text-xs font-bold">
+                    ${isAnswered 
+                        ? (savedAns === q.correct 
+                            ? '<span class="text-green-600 bg-green-50 px-2 py-1 rounded border border-green-200">✓ Jawaban Anda Benar!</span>' 
+                            : `<span class="text-red-600 bg-red-50 px-2 py-1 rounded border border-red-200">✕ Jawaban Salah. Kunci Jawaban: ${String.fromCharCode(65 + q.correct)}</span>`)
+                        : ''}
+                </div>
+            </div>
+        `;
+    });
+
+    html += `</div></div>`;
+    area.innerHTML = html;
+
+    // RENDER SIMBOL KATEX
+    if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.getElementById("contentArea"), {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
         });
+    }
+}
+
+function handleAnswer(questionId, selectedIdx) {
+    saveAnswer(questionId, selectedIdx);
+    renderQuestions();
+}
+
+// INTI PERBAIKAN AUTO-LOGIN SAAT HLAMANA DIBUKA / DI-REFRESH
+document.addEventListener("DOMContentLoaded", () => {
+    checkAuth();
+});
+
     </script>
 </body>
 </html>
