@@ -65,7 +65,7 @@ if (window.MASTER_QUESTION_BANK) {
                 "Memastikan filter udara selalu bersih dan tidak tersumbat.",
                 "Membersihkan knalpot dengan air."
             ],
-            correct: 2
+            correct: 3
         },
         {
             q: "Pada mesin 4 langkah, apabila katup masuk terbuka dan katup buang tertutup, sementara piston bergerak dari TMA ke TMB, maka proses langkah kerja ini disebut...",
@@ -111,7 +111,7 @@ if (window.MASTER_QUESTION_BANK) {
                 "Celah Katup terlalu longgar",
                 "Busi longgar"
             ],
-            correct: 2
+            correct: 3
         },
         {
             q: "Pemeriksaan yang harus diperhatikan untuk memastikan putaran stationer tidak berubah adalah...",
@@ -133,11 +133,11 @@ if (window.MASTER_QUESTION_BANK) {
                 "Kebersihan Throttle body",
                 "Tekanan fuel pump"
             ],
-            correct: 0
+            correct: 2
         },
         {
             q: "Berikut ini adalah pekerjaan yang tidak termasuk bagian dari perawatan kabel dan handel gas adalah....",
-            options: ["Pemeriksaan kondisi kelancaran handel gas", "Jarak main bebas handel gas tidak dapat disetel pada bagian ujung bawah kabel gas", "Melepas karet penutup debu dari penyetel", "Jarak main bebas handle gas disetel pada bagian sisi stang kemudi kabel gas", "Pelumasan selongsong gas"], correct: 3
+            options: ["Pemeriksaan kondisi kelancaran handel gas", "Jarak main bebas handel gas tidak dapat disetel pada bagian ujung bawah kabel gas", "Melepas karet penutup debu dari penyetel", "Jarak main bebas handle gas disetel pada bagian sisi stang kemudi kabel gas", "Pelumasan selongsong gas"], correct: 1
         },
         {
             q: "Pada jadwal perawatan berkala yang ditunjukkan Buku Pedoman Reparasi tanda \"G\" untuk item perawatan saringan udara memiliki arti ...",
@@ -170,7 +170,7 @@ if (window.MASTER_QUESTION_BANK) {
                 "Dibersihkan dengan cairan pembersih",
                 "Tidak boleh disemprot, tetap di buka dan dibersihkan dengan cara di lap"
             ],
-            correct: 0
+            correct: 4
         },
 
         // --- Naskah Halaman 3 (Soal 16 - 24) ---
