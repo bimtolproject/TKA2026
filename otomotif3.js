@@ -10,7 +10,7 @@ if (window.MASTER_QUESTION_BANK) {
     // =========================================================================
     // LEVEL 16: OTOMOTIF - 75 SOAL DPT NASKAH UJIAN SERTIFIKASI LSP-PRO INDO
     // =========================================================================
-    window.MASTER_QUESTION_BANK.otomotif[20] = [
+    window.MASTER_QUESTION_BANK.otomotif[16] = [
         // --- Naskah Halaman 1 (Soal 1 - 6) ---
         {
             q: "Fungsi utama karburator pada mesin bensin adalah...",
