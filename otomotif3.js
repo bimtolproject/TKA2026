@@ -10,7 +10,7 @@ if (window.MASTER_QUESTION_BANK) {
     // =========================================================================
     // LEVEL 16: OTOMOTIF - 75 SOAL DPT NASKAH UJIAN SERTIFIKASI LSP-PRO INDO
     // =========================================================================
-    window.MASTER_QUESTION_BANK.otomotif[16] = [
+    window.MASTER_QUESTION_BANK.otomotif[20] = [
         // --- Naskah Halaman 1 (Soal 1 - 6) ---
         {
             q: "Fungsi utama karburator pada mesin bensin adalah...",
@@ -815,13 +815,13 @@ if (window.MASTER_QUESTION_BANK) {
             correct: 3
         },
         {
-            q: "Setelah melakukan seluruh rangkaian uji pekerjaan perbaikan dan pemeriksaan pada unit sepeda motor, prosedur penutup yang WAJIB dilakukan sesuai prinsip K3 dan sertifikasi profesional adalah...",
+            q: "Apabila ditemukan retakan pada rangka (frame) chassis, tindakan perbaikan yang paling tepat adalah...",
             options: [
-                "Melakukan uji fungsi akhir (Final Road Test) kendaraan serta melakukan pembersihan alat dan area kerja (Housekeeping).",
-                "Langsung memarkir kendaraan di luar bengkel tanpa dites.",
-                "Membiarkan oli bekas berserakan di lantai bengkel.",
-                "Menyimpan alat-alat ukur presisi di tempat terbuka yang basah.",
-                "Melepas kembali baterai yang telah dipasang."
+                "Mengabaikannya jika retakan kecil.",
+                "Menambal dengan dempul atau perekat biasa.",
+                "Melakukan pengelasan oleh tenaga ahli yang bersertifikat.",
+                "Membiarkan saja karena tidak mempengaruhi kinerja mesin.",
+                "Jawaban A,B,C dan D salah"
             ],
             correct: 0
         }
