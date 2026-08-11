@@ -823,7 +823,7 @@ if (window.MASTER_QUESTION_BANK) {
                 "Membiarkan saja karena tidak mempengaruhi kinerja mesin.",
                 "Jawaban A,B,C dan D salah"
             ],
-            correct: 0
+            correct: 2
         }
     ];
 
