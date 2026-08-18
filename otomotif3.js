@@ -667,7 +667,7 @@ if (window.MASTER_QUESTION_BANK) {
                 "Aksial 2,0 mm, Radial 2,0 mm",
                 "Aksial 0,5 mm, Radial 0,5 mm"
             ],
-            correct: 3
+            correct: 0
         },
         {
             q: "Jarak main bebas penyetelan pedal rem belakang (tromol) adalah ...",
